@@ -116,6 +116,16 @@
   .walks .wlvl{font-size:.68rem; font-weight:700; padding:1px 6px; border-radius:5px; margin-left:4px}
   .walks .wlvl.s{background:#dff0e6; color:var(--good)}
   .walks .wlvl.l{background:#fdebd0; color:var(--warn)}
+  /* per-day history folder */
+  .hist{margin:10px 0 2px; border:1px solid #e0d3ea; background:#f8f4fb; border-radius:12px; padding:2px 12px}
+  .hist summary{padding:11px 0; font-weight:600; color:#6b4a86; font-size:.92rem; list-style:none; cursor:pointer}
+  .hist summary::-webkit-details-marker{display:none}
+  .hist summary::before{content:"📖 "}
+  .hist summary::after{content:"+"; float:right; color:#6b4a86; font-weight:700}
+  .hist[open] summary::after{content:"–"}
+  .hist .h{padding:7px 0; border-top:1px dashed #e0d3ea; font-size:.88rem; color:var(--ink)}
+  .hist .h:first-of-type{border-top:0}
+  .hist .h b{color:#5a3d73}
 </style>
 </head>
 <body>
@@ -171,6 +181,12 @@
       <li data-en>Arrived in the afternoon and explored Arendal town to celebrate.</li>
       <li data-es>Llegamos por la tarde y paseamos por Arendal para celebrarlo.</li>
     </ul>
+    <details class="hist">
+      <summary><span data-en>History of Arendal</span><span data-es>Historia de Arendal</span></summary>
+      <div class="h"><span data-en><b>The "Venice of the North".</b> Arendal grew up on stilts and piles across small islands and canals — earning the nickname <i>Lille Venedig</i>. Much of that waterborne town was lost in the great fire of 1868 and rebuilt on filled-in land.</span><span data-es><b>La "Venecia del Norte".</b> Arendal creció sobre pilotes entre pequeñas islas y canales — de ahí el apodo <i>Lille Venedig</i>. Gran parte de esa ciudad sobre el agua se perdió en el gran incendio de 1868 y se reconstruyó sobre terreno rellenado.</span></div>
+      <div class="h"><span data-en><b>Norway's biggest port in the age of sail.</b> By 1880 Arendal handled more shipping tonnage than any other Norwegian port, rich on timber, shipbuilding and iron mining — until the dramatic "Arendal crash" of 1886, when a banker's fraud bankrupted much of the town.</span><span data-es><b>El mayor puerto de Noruega en la era de la vela.</b> Hacia 1880 Arendal movía más tonelaje que ningún otro puerto noruego, rica por la madera, los astilleros y la minería del hierro — hasta el dramático "crac de Arendal" de 1886, cuando el fraude de un banquero arruinó a media ciudad.</span></div>
+      <div class="h"><span data-en><b>What's in the name?</b> "Arendal" comes from Old Norse <i>Arnardalr</i> — "valley of the eagle." The wooden old town of <b>Tyholmen</b>, around the <b>Pollen</b> harbour, survives from the sailing-ship era.</span><span data-es><b>¿Qué significa el nombre?</b> "Arendal" viene del nórdico antiguo <i>Arnardalr</i> — "valle del águila". El casco antiguo de madera de <b>Tyholmen</b>, en torno al puerto de <b>Pollen</b>, sobrevive de la era de los veleros.</span></div>
+    </details>
   </div>
 
   <!-- MON 29 -->
@@ -197,7 +213,13 @@
       </div>
       <div class="w"><b><span data-en>Hove–Spornes–Botne round</span><span data-es>Circular Hove–Spornes–Botne</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
         <span class="det"><span data-en>~12.5 km · ~4 hrs · moderate. The full classic via Spornes pebble beaches, Tromøy church & Botne. Café stop at Studio Spornes (cinnamon buns) by the trailhead.</span><span data-es>~12,5 km · ~4 h · moderada. La clásica completa por las playas de cantos de Spornes, la iglesia de Tromøy y Botne. Café en Studio Spornes (bollos de canela) junto al inicio.</span></span>
-      </div>
+       </div>
+    </details>
+    <details class="hist">
+      <summary><span data-en>History here</span><span data-es>Historia de aquí</span></summary>
+      <div class="h"><span data-en><b>A ridge dumped by a glacier.</b> "Raet" is the long <b>moraine</b> — a wall of boulders, gravel and sand left ~12,000 years ago as the last ice sheet melted. The sheltered stretches at Hove and Merdø became the fine beaches loved today.</span><span data-es><b>Una cresta dejada por un glaciar.</b> "Raet" es la larga <b>morrena</b> — un muro de cantos, grava y arena dejado hace ~12.000 años al fundirse el último casquete de hielo. Los tramos resguardados de Hove y Merdø se convirtieron en las playas que hoy se disfrutan.</span></div>
+      <div class="h"><span data-en><b>Burial mounds & a sacred name.</b> Hove has 17 burial mounds from the Bronze Age to the Vikings, and was part of a Viking kingdom around 800 AD. The name <i>Hove</i> hints at a pagan place of worship (a <i>hof</i>).</span><span data-es><b>Túmulos y un nombre sagrado.</b> Hove tiene 17 túmulos funerarios desde la Edad de Bronce hasta los vikingos, y formó parte de un reino vikingo hacia el 800 d.C. El nombre <i>Hove</i> alude a un lugar de culto pagano (un <i>hof</i>).</span></div>
+      <div class="h"><span data-en><b>A wartime camp.</b> In WWII the German forces took over Hove, building radar, a bunker and an anti-aircraft school (1941–44). <b>Fun fact:</b> Norway's first recorded potato crop was grown right here at Hove Farm — noted "coming up" on 31 May 1757. Raet became a national park in 2016.</span><span data-es><b>Un campamento de guerra.</b> En la II Guerra Mundial las fuerzas alemanas ocuparon Hove, con radar, un búnker y una escuela antiaérea (1941–44). <b>Curiosidad:</b> la primera cosecha de patatas registrada en Noruega se cultivó aquí, en la granja de Hove — anotada "brotando" el 31 de mayo de 1757. Raet es parque nacional desde 2016.</span></div>
     </details>
   </div>
 
@@ -222,7 +244,13 @@
       </div>
       <div class="w"><b><span data-en>Dømmesmoen + Frivolldalen round (lookout tower)</span><span data-es>Circular Dømmesmoen + Frivolldalen (torre mirador)</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
         <span class="det"><span data-en>~6–7 km · ~2 hrs · easy–moderate. Forest loop up to the Utkikkstårnet lookout (views over town & sea), along the Raet ridge and back. Also nearby: Fjæreheia granite quarry & Binabben viewpoint.</span><span data-es>~6–7 km · ~2 h · fácil-moderada. Vuelta por el bosque hasta la torre Utkikkstårnet (vistas al pueblo y al mar), por la cresta de Raet y vuelta. Cerca: cantera de Fjæreheia y mirador de Binabben.</span></span>
-      </div>
+       </div>
+    </details>
+    <details class="hist">
+      <summary><span data-en>History of Grimstad</span><span data-es>Historia de Grimstad</span></summary>
+      <div class="h"><span data-en><b>Where Ibsen wrote his first play.</b> A teenage <b>Henrik Ibsen</b> worked as a pharmacist's apprentice in Grimstad (1844–1850), and it was here he wrote his first play, <i>Catilina</i>. The local coast later fed his poem <i>Terje Vigen</i>.</span><span data-es><b>Donde Ibsen escribió su primera obra.</b> Un adolescente <b>Henrik Ibsen</b> trabajó de aprendiz de boticario en Grimstad (1844–1850), y aquí escribió su primera obra, <i>Catilina</i>. La costa local inspiró luego su poema <i>Terje Vigen</i>.</span></div>
+      <div class="h"><span data-en><b>A smugglers' sailing town.</b> A harbour by the 1500s and an inn by 1607; by 1747 it was a known smugglers' haunt. During the Napoleonic Wars the British Royal Navy blockaded it. Nobel laureate <b>Knut Hamsun</b> later lived at nearby Nørholm farm.</span><span data-es><b>Un pueblo marinero de contrabandistas.</b> Puerto ya en el siglo XVI y posada en 1607; hacia 1747 era guarida conocida de contrabandistas. En las Guerras Napoleónicas la Marina británica lo bloqueó. El Nobel <b>Knut Hamsun</b> vivió luego en la cercana granja de Nørholm.</span></div>
+      <div class="h"><span data-en><b>What's in the name?</b> "Grimstad" was originally <i>Grømstad</i> — the old <i>Grøm</i> farm plus <i>stǫð</i>, "landing place / harbour." The spelling drifted to "Grimstad" by a registration mistake.</span><span data-es><b>¿Qué significa el nombre?</b> "Grimstad" era originalmente <i>Grømstad</i> — la antigua granja <i>Grøm</i> más <i>stǫð</i>, "embarcadero / puerto". La grafía derivó a "Grimstad" por un error de registro.</span></div>
     </details>
   </div>
 
@@ -260,7 +288,13 @@
       </div>
       <div class="w"><b>Baneheia</b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
         <span class="det"><span data-en>~2–3 km · ~45 min. Forested lake park behind the city centre — gentle paths around the ponds. A quick green leg-stretch.</span><span data-es>~2–3 km · ~45 min. Parque boscoso con lagos detrás del centro — caminos suaves alrededor de los estanques. Un paseo verde rápido.</span></span>
-      </div>
+       </div>
+    </details>
+    <details class="hist">
+      <summary><span data-en>History of Kristiansand</span><span data-es>Historia de Kristiansand</span></summary>
+      <div class="h"><span data-en><b>Founded by a king in 1641.</b> King <b>Christian IV</b> of Denmark-Norway founded the town on 5 July 1641 and named it after himself — <i>Christianssand</i>, "Christian's sand," for the sandy headland it sits on.</span><span data-es><b>Fundada por un rey en 1641.</b> El rey <b>Cristián IV</b> de Dinamarca-Noruega fundó la ciudad el 5 de julio de 1641 y la nombró en su honor — <i>Christianssand</i>, "la arena de Cristián", por el promontorio arenoso donde se asienta.</span></div>
+      <div class="h"><span data-en><b>The grid-plan "Kvadraturen".</b> He laid the centre out in a strict Renaissance grid — still called <i>Kvadraturen</i> ("the Quarters") — and ordered Agder's merchants to move in with tax breaks. A fortress town from 1666, it guarded the Skagerrak from Christiansholm Fortress.</span><span data-es><b>El plano en cuadrícula "Kvadraturen".</b> Trazó el centro en una estricta cuadrícula renacentista — aún llamada <i>Kvadraturen</i> ("los Cuartos") — y ordenó a los comerciantes de Agder mudarse con exenciones fiscales. Ciudad fortaleza desde 1666, vigilaba el Skagerrak desde la fortaleza de Christiansholm.</span></div>
+      <div class="h"><span data-en><b>Cardamom Town by the zoo.</b> <b>Dyreparken</b> is Norway's largest zoo (900,000+ visitors a year) and home to a real-life <b>Kardemomme By</b> — Cardamom Town from Thorbjørn Egner's beloved 1955 children's story.</span><span data-es><b>La Ciudad del Cardamomo junto al zoo.</b> <b>Dyreparken</b> es el mayor zoo de Noruega (más de 900.000 visitantes al año) y alberga una <b>Kardemomme By</b> de verdad — la Ciudad del Cardamomo del querido cuento de 1955 de Thorbjørn Egner.</span></div>
     </details>
   </div>
 
@@ -314,7 +348,13 @@
       </div>
       <div class="w"><b><span data-en>Coastal path toward Kjerlingland / Høvåg</span><span data-es>Sendero costero hacia Kjerlingland / Høvåg</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
         <span class="det"><span data-en>~5–8 km (pick your turnaround) · 1.5–2.5 hrs · moderate. Marked coastal path SW along the skerries — rocky shore, sea views, quiet coves. Out-and-back, go as far as you like.</span><span data-es>~5–8 km (volved donde queráis) · 1,5–2,5 h · moderada. Sendero costero marcado al SO por los islotes — costa rocosa, vistas al mar, calas tranquilas. Ida y vuelta, hasta donde queráis.</span></span>
-      </div>
+       </div>
+    </details>
+    <details class="hist">
+      <summary><span data-en>History of Lillesand</span><span data-es>Historia de Lillesand</span></summary>
+      <div class="h"><span data-en><b>The "little" sand.</b> Originally just <i>Sand</i> ("sandy beach"), the town added <i>Lille</i> ("little") after Kristiansand was founded in 1641 — to tell it apart from its bigger, grander neighbour.</span><span data-es><b>La arena "pequeña".</b> Originalmente solo <i>Sand</i> ("playa de arena"), el pueblo añadió <i>Lille</i> ("pequeña") tras la fundación de Kristiansand en 1641 — para distinguirse de su vecina mayor y más grandiosa.</span></div>
+      <div class="h"><span data-en><b>An age-of-sail boom and bust.</b> When it became a privileged port in 1821, Lillesand had just 300 people but nine shipyards; by 1895 its fleet was 95 ships. Then steam killed sail — the yards closed and many emigrated to America.</span><span data-es><b>Auge y caída de la era de la vela.</b> Al convertirse en puerto privilegiado en 1821, Lillesand tenía solo 300 habitantes pero nueve astilleros; en 1895 su flota era de 95 barcos. Luego el vapor mató a la vela — los astilleros cerraron y muchos emigraron a América.</span></div>
+      <div class="h"><span data-en><b>The calm Blindleia.</b> Famous for its white wooden houses, Lillesand sits by the <b>Blindleia</b> — a sheltered inland sea-passage protected by offshore skerries, with almost no tide.</span><span data-es><b>El tranquilo Blindleia.</b> Famosa por sus casas blancas de madera, Lillesand se asoma al <b>Blindleia</b> — un pasaje marino interior resguardado por los islotes, casi sin marea.</span></div>
     </details>
   </div>
 
@@ -341,7 +381,13 @@
       <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
       <div class="w"><b><span data-en>Merdø island round</span><span data-es>Vuelta a la isla de Merdø</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
         <span class="det"><span data-en>~2.8 km · ~1 hr · easy. One loop covers the whole island: old pilot lookout (compass rose, "1654" rock, cannon), customs house, shore path, Merdøgaard museum & swimming beach. Easy enough for all, with plenty to see.</span><span data-es>~2,8 km · ~1 h · fácil. Una vuelta cubre toda la isla: antiguo puesto del piloto (rosa de los vientos, roca "1654", cañón), aduana, sendero costero, museo Merdøgaard y playa de baño. Fácil para todos, con mucho que ver.</span></span>
-      </div>
+       </div>
+    </details>
+    <details class="hist">
+      <summary><span data-en>History of Merdø</span><span data-es>Historia de Merdø</span></summary>
+      <div class="h"><span data-en><b>A port on every old Dutch map.</b> Merdø was an <i>uthavn</i> (outport) where sailing ships waited for wind and took on provisions. It appears on Dutch charts from 1580 and was one of the Skagerrak's most important harbours, settled since at least the 1300s.</span><span data-es><b>Un puerto en todos los mapas holandeses antiguos.</b> Merdø era un <i>uthavn</i> (puerto exterior) donde los veleros esperaban viento y se abastecían. Aparece en cartas holandesas desde 1580 y fue uno de los puertos más importantes del Skagerrak, habitado desde al menos el siglo XIV.</span></div>
+      <div class="h"><span data-en><b>Inn, customs, cannons.</b> 16th-century writings mention Merdø's inn, customs station and shipyard. Two cannons placed in the 1700s to defend Arendal still stand — beside compass roses carved into the rock and dated 1654.</span><span data-es><b>Posada, aduana, cañones.</b> Textos del siglo XVI mencionan la posada, la aduana y el astillero de Merdø. Dos cañones colocados en el siglo XVIII para defender Arendal siguen en pie — junto a rosas de los vientos talladas en la roca y fechadas en 1654.</span></div>
+      <div class="h"><span data-en><b>Merdøgaard, the captain's house.</b> The well-preserved 1700s sea-captain's house is now a museum. From 144 residents in 26 houses in 1900, the island fell quiet when sail ended (customs closed 1960) — and became today's car-free holiday island.</span><span data-es><b>Merdøgaard, la casa del capitán.</b> La casa de capitán del siglo XVIII, bien conservada, es hoy un museo. De 144 habitantes en 26 casas en 1900, la isla quedó en silencio al acabar la vela (la aduana cerró en 1960) — y se convirtió en la isla de vacaciones sin coches de hoy.</span></div>
     </details>
   </div>
 
@@ -363,7 +409,12 @@
       </div>
       <div class="w"><b><span data-en>Tromøy church → Bjellandstrand → Botne</span><span data-es>Iglesia de Tromøy → Bjellandstrand → Botne</span></b><span class="wlvl l"><span data-en>med</span><span data-es>media</span></span>
         <span class="det"><span data-en>~3–4 km one-way · 1–1.5 hrs · easy–moderate. Gentle historic stretch past Tromøy church to the sea at Botne. (Full Hove–Spornes–Botne round ~12.5 km for the keen walkers.)</span><span data-es>~3–4 km solo ida · 1–1,5 h · fácil-moderada. Tramo histórico suave pasando la iglesia de Tromøy hasta el mar en Botne. (La circular completa Hove–Spornes–Botne ~12,5 km para las caminantes.)</span></span>
-      </div>
+       </div>
+    </details>
+    <details class="hist">
+      <summary><span data-en>History of Tromøy</span><span data-es>Historia de Tromøy</span></summary>
+      <div class="h"><span data-en><b>One of Norway's oldest stone churches.</b> Whitewashed <b>Tromøy Church</b> dates to around 1150. Sailors used it as a navigation landmark — until 1940 the lighthouse authority was responsible for keeping its south wall painted white so it stood out from the sea.</span><span data-es><b>Una de las iglesias de piedra más antiguas de Noruega.</b> La encalada <b>iglesia de Tromøy</b> data de hacia 1150. Los marineros la usaban como punto de referencia — hasta 1940 la autoridad de faros se encargaba de mantener su muro sur pintado de blanco para que destacara desde el mar.</span></div>
+      <div class="h"><span data-en><b>A name meaning "the edge."</b> <i>Tromøya</i> comes from Old Norse <i>Þruma</i>, "rim" or "edge" — fitting for an island on the seaward edge of the coast, lined with the great rounded Ice Age boulders that appear on its old coat of arms.</span><span data-es><b>Un nombre que significa "el borde".</b> <i>Tromøya</i> viene del nórdico antiguo <i>Þruma</i>, "borde" o "filo" — apropiado para una isla en el borde marino de la costa, bordeada por los grandes cantos redondeados de la Edad de Hielo que aparecen en su antiguo escudo.</span></div>
     </details>
   </div>
 </section>
