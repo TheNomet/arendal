@@ -126,6 +126,15 @@
   .hist .h{padding:7px 0; border-top:1px dashed #e0d3ea; font-size:.88rem; color:var(--ink)}
   .hist .h:first-of-type{border-top:0}
   .hist .h b{color:#5a3d73}
+  /* day phase blocks (morning/lunch/afternoon) */
+  .phase{margin:12px 0 0; padding:10px 12px; border-radius:12px; background:var(--sand); border:1px solid var(--line)}
+  .phase + .phase{margin-top:8px}
+  .phase .ph{display:block; font-size:.72rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--sea); margin-bottom:3px}
+  .phase.lunch{background:#fdf6ec; border-color:#f0dcc0}
+  .phase.lunch .ph{color:var(--warn)}
+  .phase.pm{background:#eef6f8; border-color:#cfe2e8}
+  .phase.pm .ph{color:var(--sea-d)}
+  .phase p{margin:0; font-size:.9rem}
 </style>
 </head>
 <body>
@@ -198,14 +207,24 @@
     </div>
     <span class="wx good">☀️ 22°C · <span data-en>dry, scattered cloud</span><span data-es>seco, nubes dispersas</span></span>
     <ul>
-      <li data-en>Raet National Park, 10–15 min from the house. Rock & sand beaches, water play, lighthouse views.</li>
-      <li data-es>Parque Nacional Raet, a 10–15 min de casa. Playas de roca y arena, juego con agua, vistas a los faros.</li>
+      <li data-en><b>Morning:</b> Raet National Park, 10–15 min from the house. Rock & sand beaches, water play, lighthouse views.</li>
+      <li data-es><b>Por la mañana:</b> Parque Nacional Raet, a 10–15 min de casa. Playas de roca y arena, juego con agua, vistas a los faros.</li>
       <li data-en>Bring a <b>picnic</b> — no reliable café (kiosk at Hove only if open).</li>
       <li data-es>Llevad <b>picnic</b> — no hay cafetería fiable (quiosco en Hove solo si está abierto).</li>
       <li data-en>Optional: the Hove round trail for whoever wants a short walk.</li>
       <li data-es>Opcional: la ruta circular de Hove para quien quiera pasear un poco.</li>
     </ul>
     <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Spornes car park (<span data-en>arrive before late morning</span><span data-es>llegad antes del mediodía</span>) <span data-en>or</span><span data-es>o</span> Hove leirsenter.</div>
+
+    <div class="phase lunch">
+      <span class="ph">🥪 <span data-en>Lunch & Mikel's nap</span><span data-es>Comida y siesta de Mikel</span></span>
+      <p><span data-en>No need to stay all day. Easiest: picnic + coffee at the beach, then Mikel naps in the car/stroller. For a treat, <b>Studio Spornes</b> café near the trailhead (coffee & cinnamon buns) — small/seasonal, so check it's open. The <b>Hove leirsenter</b> kiosk is a backup for ice cream & snacks. Need a shop? <b>Færvik</b> (~5–8 min) has a grocery for picnic supplies.</span><span data-es>No hace falta quedarse todo el día. Lo más fácil: picnic + café en la playa, y Mikel duerme en el coche/carrito. Como capricho, el café <b>Studio Spornes</b> cerca del inicio del sendero (café y bollos de canela) — pequeño/de temporada, así que confirmad que abra. El quiosco de <b>Hove leirsenter</b> es alternativa para helado y aperitivos. ¿Necesitáis tienda? <b>Færvik</b> (~5–8 min) tiene supermercado para el picnic.</span></p>
+    </div>
+
+    <div class="phase pm">
+      <span class="ph">🌅 <span data-en>Optional afternoon (close to base)</span><span data-es>Tarde opcional (cerca de casa)</span></span>
+      <p><span data-en>While Mikel sleeps or after: <b>Tromøy kirke</b> (~5 min) — the ~1150 stone church; quiet, shaded, easy for the grandparents (churchyard always open; interior only at service times). A more sheltered paddle for the toddler at <b>Brattekleiv</b> beach (~10 min, calmer than Spornes). If there's still energy, drive into <b>Pollen / Tyholmen</b> (~15–20 min) for a flat harbour stroll, the <b>Fløyheia glass lift</b> viewpoint and ice cream.</span><span data-es>Mientras Mikel duerme o después: la <b>iglesia de Tromøy</b> (~5 min) — iglesia de piedra de ~1150; tranquila, con sombra, fácil para los abuelos (el cementerio siempre abierto; el interior solo en horario de misa). Un baño más resguardado para el peque en la playa de <b>Brattekleiv</b> (~10 min, más tranquila que Spornes). Si queda energía, acercaos a <b>Pollen / Tyholmen</b> (~15–20 min) para pasear por el puerto llano, el mirador del <b>ascensor de cristal Fløyheia</b> y un helado.</span></p>
+    </div>
     <details class="walks">
       <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
       <div class="w"><b><span data-en>Hoveodden coast stroll</span><span data-es>Paseo costero de Hoveodden</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
