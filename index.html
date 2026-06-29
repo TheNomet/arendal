@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0b5e6e" />
+<title>Arendal · Family Trip</title>
+<style>
+  :root{
+    --sea:#0b5e6e; --sea-d:#084651; --sun:#e8a23d; --sand:#f6f1e7;
+    --ink:#1d2b2f; --muted:#5b6b6f; --line:#e2dcd0; --card:#ffffff;
+    --good:#2e7d4f; --warn:#c2611f; --bad:#b2362f; --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--sand); line-height:1.5;
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+  header{
+    background:linear-gradient(135deg,var(--sea),var(--sea-d));
+    color:#fff; padding:22px 18px calc(18px); position:relative;
+    padding-top:calc(22px + env(safe-area-inset-top));
+  }
+  header h1{margin:0; font-size:1.5rem; letter-spacing:.3px}
+  header p{margin:6px 0 0; opacity:.92; font-size:.92rem}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
+  .langbar{
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,.96);
+    backdrop-filter:saturate(1.4) blur(6px);
+    border-bottom:1px solid var(--line); display:flex; gap:8px;
+    padding:10px 16px calc(10px); align-items:center; justify-content:space-between;
+  }
+  .langbtns{display:flex; gap:6px}
+  .langbtns button{
+    border:1px solid var(--sea); background:#fff; color:var(--sea);
+    padding:8px 16px; border-radius:999px; font-size:.95rem; font-weight:600;
+    cursor:pointer; min-height:40px;
+  }
+  .langbtns button.active{background:var(--sea); color:#fff}
+  nav.toc{display:flex; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:0 16px 10px}
+  nav.toc a{
+    white-space:nowrap; text-decoration:none; color:var(--sea-d);
+    background:#fff; border:1px solid var(--line); padding:7px 12px;
+    border-radius:999px; font-size:.86rem; font-weight:600;
+  }
+  section{padding:22px 0 6px}
+  h2{font-size:1.25rem; margin:0 0 4px; color:var(--sea-d); display:flex; align-items:center; gap:8px}
+  h2 .emoji{font-size:1.2rem}
+  .sub{color:var(--muted); font-size:.9rem; margin:0 0 14px}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:16px; margin:0 0 14px; box-shadow:0 1px 2px rgba(0,0,0,.03);
+  }
+  .day-head{display:flex; flex-direction:column; gap:2px}
+  .day-date{font-weight:700; font-size:.85rem; color:var(--sea); text-transform:uppercase; letter-spacing:.5px}
+  .day-title{font-weight:700; font-size:1.12rem; color:var(--sea-d)}
+  .wx{
+    display:inline-flex; align-items:center; gap:6px; font-size:.82rem;
+    background:var(--sand); border:1px solid var(--line); border-radius:999px;
+    padding:4px 10px; margin-top:6px; color:var(--ink);
+  }
+  .wx.good{border-color:#bfe3cd}
+  .wx.warn{border-color:#f0d3b3}
+  .wx.bad{border-color:#f0bdb9; background:#fcefee}
+  .tag{
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.4px;
+    text-transform:uppercase; padding:3px 8px; border-radius:6px; margin-bottom:8px;
+  }
+  .tag.big{background:#fdebd0; color:var(--warn)}
+  .tag.easy{background:#dff0e6; color:var(--good)}
+  .tag.rain{background:#fce0dd; color:var(--bad)}
+  ul{margin:8px 0 0; padding-left:20px}
+  li{margin:5px 0}
+  .meta{font-size:.85rem; color:var(--muted); margin-top:8px}
+  .meta b{color:var(--ink)}
+  .pill{font-size:.78rem; background:var(--sand); border:1px solid var(--line); padding:2px 8px; border-radius:999px; margin-right:4px; display:inline-block; margin-top:4px}
+  a.link{color:var(--sea); font-weight:600}
+  .callout{border-left:4px solid var(--sun); background:#fff; padding:12px 14px; border-radius:0 12px 12px 0; margin:10px 0; font-size:.92rem}
+  .callout.alt{border-left-color:var(--sea)}
+  .grid{display:grid; gap:12px}
+  details{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:4px 14px; margin-bottom:10px}
+  details summary{cursor:pointer; font-weight:600; padding:12px 0; list-style:none; color:var(--sea-d)}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+"; float:right; color:var(--sea); font-weight:700}
+  details[open] summary::after{content:"–"}
+  .lvl{font-size:.72rem; font-weight:700; padding:2px 7px; border-radius:6px; margin-left:6px}
+  .lvl.s{background:#dff0e6; color:var(--good)}
+  .lvl.c{background:#fdebd0; color:var(--warn)}
+  footer{padding:26px 16px calc(40px + env(safe-area-inset-bottom)); text-align:center; color:var(--muted); font-size:.82rem}
+  /* language visibility: default EN shown, ES hidden */
+  [data-es]{display:none}
+  [data-en]{display:revert}
+  html[lang="es"] [data-en]{display:none}
+  html[lang="es"] [data-es]{display:revert}
+  .hr{height:1px;background:var(--line);border:0;margin:18px 0}
+</style>
+</head>
+<body>
+
+<div class="langbar">
+  <strong style="color:var(--sea-d);font-size:.95rem">Arendal 🇳🇴</strong>
+  <div class="langbtns">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-es" onclick="setLang('es')">ES</button>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <h1><span data-en>Arendal Family Days</span><span data-es>Días en familia · Arendal</span></h1>
+    <p><span data-en>29 June – 5 July · 2 cars · toddler + grandparents</span>
+       <span data-es>29 junio – 5 julio · 2 coches · bebé + abuelos</span></p>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#plan"><span data-en>Plan</span><span data-es>Plan</span></a>
+  <a href="#weather"><span data-en>Weather</span><span data-es>Tiempo</span></a>
+  <a href="#parking"><span data-en>Parking</span><span data-es>Aparcar</span></a>
+  <a href="#hikes"><span data-en>Hikes</span><span data-es>Rutas</span></a>
+  <a href="#rain"><span data-en>If it rains</span><span data-es>Si llueve</span></a>
+  <a href="#museums"><span data-en>Museums</span><span data-es>Museos</span></a>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ PLAN ============ -->
+<section id="plan">
+  <h2><span class="emoji">🗓️</span><span data-en>Day by day</span><span data-es>Día a día</span></h2>
+  <p class="sub"><span data-en>Outdoor plans matched to the weather. Thursday is the rainy day → indoor.</span>
+     <span data-es>Planes al aire libre según el tiempo. El jueves llueve → plan de interior.</span></p>
+
+  <!-- MON 29 -->
+  <div class="card">
+    <span class="tag easy"><span data-en>Easy / close to home</span><span data-es>Fácil / cerca de casa</span></span>
+    <div class="day-head">
+      <span class="day-date"><span data-en>Mon 29 Jun</span><span data-es>Lun 29 jun</span></span>
+      <span class="day-title"><span data-en>Hove & Spornes beaches</span><span data-es>Playas de Hove y Spornes</span></span>
+    </div>
+    <span class="wx good">☀️ 22°C · <span data-en>dry, scattered cloud</span><span data-es>seco, nubes dispersas</span></span>
+    <ul>
+      <li data-en>Raet National Park, 10–15 min from the house. Rock & sand beaches, water play, lighthouse views.</li>
+      <li data-es>Parque Nacional Raet, a 10–15 min de casa. Playas de roca y arena, juego con agua, vistas a los faros.</li>
+      <li data-en>Bring a <b>picnic</b> — no reliable café (kiosk at Hove only if open).</li>
+      <li data-es>Llevad <b>picnic</b> — no hay cafetería fiable (quiosco en Hove solo si está abierto).</li>
+      <li data-en>Optional: the Hove round trail for whoever wants a short walk.</li>
+      <li data-es>Opcional: la ruta circular de Hove para quien quiera pasear un poco.</li>
+    </ul>
+    <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Spornes car park (<span data-en>arrive before late morning</span><span data-es>llegad antes del mediodía</span>) <span data-en>or</span><span data-es>o</span> Hove leirsenter.</div>
+  </div>
+
+  <!-- TUE 30 -->
+  <div class="card">
+    <div class="day-head">
+      <span class="day-date"><span data-en>Tue 30 Jun</span><span data-es>Mar 30 jun</span></span>
+      <span class="day-title"><span data-en>Grimstad town</span><span data-es>Pueblo de Grimstad</span></span>
+    </div>
+    <span class="wx good">⛅ 21°C · <span data-en>overcast, dry</span><span data-es>nublado, seco</span></span>
+    <ul>
+      <li data-en>~25–30 min drive. Pretty white-house harbour town, flat & strollable.</li>
+      <li data-es>~25–30 min en coche. Bonito pueblo portuario de casas blancas, llano y fácil con carrito.</li>
+      <li data-en>Lunch: <b>Herlighed</b> (homemade café) or <b>Apotekergaarden</b> (courtyard). Ice cream at the harbour kiosks.</li>
+      <li data-es>Comer: <b>Herlighed</b> (café casero) o <b>Apotekergaarden</b> (patio). Helado en los quioscos del puerto.</li>
+    </ul>
+    <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Grømbukt <span data-en>harbourside lots.</span><span data-es>junto al puerto.</span></div>
+  </div>
+
+  <!-- WED 1 -->
+  <div class="card">
+    <span class="tag big"><span data-en>Big day</span><span data-es>Día grande</span></span>
+    <div class="day-head">
+      <span class="day-date"><span data-en>Wed 1 Jul</span><span data-es>Mié 1 jul</span></span>
+      <span class="day-title">Kristiansand Dyreparken 🦁</span>
+    </div>
+    <span class="wx good">☀️ 22°C · <span data-en>dry</span><span data-es>seco</span></span>
+    <ul>
+      <li data-en>~55–65 min via E18. Open <b>09:00–19:00</b>. Go early (09:30–10:00) to beat queues & see animals before nap.</li>
+      <li data-es>~55–65 min por la E18. Abre <b>09:00–19:00</b>. Id pronto (09:30–10:00) para evitar colas y ver animales antes de la siesta.</li>
+      <li data-en><b>Buy tickets online in advance</b> — peak-July prices rise during the day.</li>
+      <li data-es><b>Comprad las entradas online por adelantado</b> — en julio el precio sube a lo largo del día.</li>
+      <li data-en><b>Toddler focus (don't do it all):</b> farm/petting area, Nordic animals (moose, wolves, lynx), Kaptein Sabeltann train, Hakkebakkeskogen, Kardemomme By, playgrounds.</li>
+      <li data-es><b>Para el peque (no intentéis verlo todo):</b> la granja, animales nórdicos (alces, lobos, linces), el tren de Kaptein Sabeltann, Hakkebakkeskogen, Kardemomme By, zonas de juego.</li>
+      <li data-en>Food: picnic allowed (lots of benches) + one hot item. Bakery + playground in Hakkebakkeskogen.</li>
+      <li data-es>Comida: se puede llevar picnic (hay muchos bancos) + algo caliente. Panadería + parque infantil en Hakkebakkeskogen.</li>
+    </ul>
+    <div class="callout">
+      <span data-en>⚠️ <b>Parking — foreign plates:</b> pay <b>before leaving</b> via the <b>APCOA FLOW</b> app (download in advance) or at machines; postal invoices abroad are unreliable. ~130 NOK/day. Your two cars may be sent to different lots — <b>agree a meeting point</b>.</span>
+      <span data-es>⚠️ <b>Aparcamiento — matrícula extranjera:</b> pagad <b>antes de salir</b> con la app <b>APCOA FLOW</b> (descargadla antes) o en las máquinas; las facturas por correo al extranjero no son fiables. ~130 NOK/día. Vuestros dos coches pueden ir a parkings distintos — <b>quedad en un punto de encuentro</b>.</span>
+    </div>
+  </div>
+
+  <!-- THU 2 -->
+  <div class="card">
+    <span class="tag rain"><span data-en>Rain day · indoor</span><span data-es>Día de lluvia · interior</span></span>
+    <div class="day-head">
+      <span class="day-date"><span data-en>Thu 2 Jul</span><span data-es>Jue 2 jul</span></span>
+      <span class="day-title"><span data-en>Indoor day</span><span data-es>Día de interior</span></span>
+    </div>
+    <span class="wx bad">🌧️ 18°C · <span data-en>70% rain, 7mm</span><span data-es>70% lluvia, 7mm</span></span>
+    <ul>
+      <li data-en><b>Vitensenteret Sørlandet</b> (Arendal waterfront, ~11:00–16:00) — science centre with an under-3s room, café. Closest & easiest.</li>
+      <li data-es><b>Vitensenteret Sørlandet</b> (puerto de Arendal, ~11:00–16:00) — centro de ciencia con sala para menores de 3 años, café. Lo más cercano y fácil.</li>
+      <li data-en>Bigger option: <b>Aquarama</b> water park, Kristiansand (~1 hr) — baby under-3 ≈99 NOK, adult ≈259, family-of-4 ≈899.</li>
+      <li data-es>Opción más grande: parque acuático <b>Aquarama</b>, Kristiansand (~1 h) — bebé menor de 3 ≈99 NOK, adulto ≈259, familia de 4 ≈899.</li>
+      <li data-en>Keep driving minimal today. See the <a class="link" href="#museums">Museums</a> & <a class="link" href="#rain">If it rains</a> sections for more.</li>
+      <li data-es>Conducid lo mínimo hoy. Mirad las secciones <a class="link" href="#museums">Museos</a> y <a class="link" href="#rain">Si llueve</a>.</li>
+    </ul>
+  </div>
+
+  <!-- FRI 3 -->
+  <div class="card">
+    <div class="day-head">
+      <span class="day-date"><span data-en>Fri 3 Jul</span><span data-es>Vie 3 jul</span></span>
+      <span class="day-title"><span data-en>Lillesand town</span><span data-es>Pueblo de Lillesand</span></span>
+    </div>
+    <span class="wx warn">💨 21°C · <span data-en>dry, breezy (31 km/h)</span><span data-es>seco, con viento (31 km/h)</span></span>
+    <ul>
+      <li data-en>~45–50 min. The postcard Sørlandet town — white houses around a harbour square.</li>
+      <li data-es>~45–50 min. El pueblo de postal del Sørlandet — casas blancas en torno a la plaza del puerto.</li>
+      <li data-en>Lunch: <b>Restaurant Beddingen</b> (family-friendly, big harbour terrace), ice cream at <b>Lillis Gelato</b>.</li>
+      <li data-es>Comer: <b>Restaurant Beddingen</b> (apto para familias, gran terraza junto al puerto), helado en <b>Lillis Gelato</b>.</li>
+      <li data-en>A town stroll beats a boat today — too windy for the sea.</li>
+      <li data-es>Mejor pasear por el pueblo que ir en barco hoy — demasiado viento en el mar.</li>
+    </ul>
+    <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Lillesand Gjestehavn (<span data-en>Tingsaker is the bigger fallback, 5-min walk</span><span data-es>Tingsaker es la alternativa grande, a 5 min andando</span>).</div>
+  </div>
+
+  <!-- SAT 4 -->
+  <div class="card">
+    <div class="day-head">
+      <span class="day-date"><span data-en>Sat 4 Jul</span><span data-es>Sáb 4 jul</span></span>
+      <span class="day-title"><span data-en>Merdø island (boat)</span><span data-es>Isla de Merdø (barco)</span></span>
+    </div>
+    <span class="wx warn">⛅ 19°C · <span data-en>slight shower chance (18%)</span><span data-es>baja probabilidad de chubascos (18%)</span></span>
+    <ul>
+      <li data-en>Ferry from Pollen (~20–30 min). <b>Book each leg online.</b> Can stop at Revesand on Tromøy on request (call +47 994 61 235, ≥30 min ahead).</li>
+      <li data-es>Ferry desde Pollen (~20–30 min). <b>Reservad cada trayecto online.</b> Puede parar en Revesand (Tromøy) si lo pedís (llamad al +47 994 61 235, con ≥30 min de antelación).</li>
+      <li data-en>Car-free island: beach, swimming, old harbour houses. Café <b>Merdø Kro</b> (pizza, fish soup) — check their Facebook that morning.</li>
+      <li data-es>Isla sin coches: playa, baño, casas antiguas del puerto. Café <b>Merdø Kro</b> (pizza, sopa de pescado) — mirad su Facebook esa mañana.</li>
+      <li data-en>Pack light — bring a carrier rather than a stroller.</li>
+      <li data-es>Llevad poco peso — mejor mochila portabebé que carrito.</li>
+    </ul>
+    <div class="callout alt">
+      <span data-en>🌧️ <b>If showers settle in:</b> swap to the <b>MS Nidelv</b> archipelago tour (12:00 / 14:30, ~1 hr, covered boat).</span>
+      <span data-es>🌧️ <b>Si se pone a llover:</b> cambiad al tour por el archipiélago en el <b>MS Nidelv</b> (12:00 / 14:30, ~1 h, barco cubierto).</span>
+    </div>
+  </div>
+
+  <!-- SUN 5 -->
+  <div class="card">
+    <div class="day-head">
+      <span class="day-date"><span data-en>Sun 5 Jul</span><span data-es>Dom 5 jul</span></span>
+      <span class="day-title"><span data-en>Departure / flex</span><span data-es>Salida / libre</span></span>
+    </div>
+    <span class="wx good">☀️ 21°C · <span data-en>dry</span><span data-es>seco</span></span>
+    <ul>
+      <li data-en>One last beach morning at Hove, or whatever you skipped during the week.</li>
+      <li data-es>Última mañana de playa en Hove, o lo que os quedara pendiente de la semana.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="hr" />
+
+<!-- ============ WEATHER ============ -->
+<section id="weather">
+  <h2><span class="emoji">🌤️</span><span data-en>Weather forecast</span><span data-es>Previsión del tiempo</span></h2>
+  <p class="sub"><span data-en>Updated from yr.no / timeanddate. Sunset is ~22:30 — long evenings!</span>
+     <span data-es>De yr.no / timeanddate. El sol se pone ~22:30 — ¡tardes muy largas!</span></p>
+  <div class="card">
+    <ul style="list-style:none;padding-left:0;margin:0">
+      <li>☀️ <b>Mon 29</b> · 22°C · <span data-en>scattered cloud, dry</span><span data-es>nubes dispersas, seco</span></li>
+      <li>⛅ <b>Tue 30</b> · 21°C · <span data-en>overcast, dry</span><span data-es>nublado, seco</span></li>
+      <li>☀️ <b>Wed 1</b> · 22°C · <span data-en>mostly cloudy, dry</span><span data-es>bastante nublado, seco</span></li>
+      <li>🌧️ <b>Thu 2</b> · 18°C · <span data-en><b>rain showers, 70%, 7mm</b></span><span data-es><b>chubascos, 70%, 7mm</b></span></li>
+      <li>💨 <b>Fri 3</b> · 21°C · <span data-en>dry, breezy 31 km/h</span><span data-es>seco, viento 31 km/h</span></li>
+      <li>⛅ <b>Sat 4</b> · 19°C · <span data-en>light showers possible 18%</span><span data-es>posibles chubascos 18%</span></li>
+      <li>☀️ <b>Sun 5</b> · 21°C · <span data-en>afternoon clouds, dry</span><span data-es>nubes por la tarde, seco</span></li>
+    </ul>
+    <div class="meta"><span data-en>Forecasts change — check</span><span data-es>La previsión cambia — consultad</span> <a class="link" href="https://www.yr.no/en/forecast/daily-table/2-3137115/Norway/Agder/Arendal/Arend%C3%B8ya" target="_blank" rel="noopener">yr.no</a>.</div>
+  </div>
+</section>
+
+<hr class="hr" />
+
+<!-- ============ PARKING ============ -->
+<section id="parking">
+  <h2><span class="emoji">🅿️</span><span data-en>Parking & cars</span><span data-es>Aparcamiento y coches</span></h2>
+  <div class="card">
+    <ul style="padding-left:18px;margin:0">
+      <li data-en><b>Dyreparken:</b> ~130 NOK/day. Plate recognition — <b>foreign plates must pay before leaving</b> via the <b>APCOA FLOW app</b> or machine. First 30 min free. Two cars may be split between lots → agree a meeting point.</li>
+      <li data-es><b>Dyreparken:</b> ~130 NOK/día. Lectura de matrícula — <b>las matrículas extranjeras deben pagar antes de salir</b> con la <b>app APCOA FLOW</b> o en máquina. Primeros 30 min gratis. Los dos coches pueden ir a parkings distintos → quedad en un punto de encuentro.</li>
+      <li data-en><b>Hove / Spornes:</b> paid summer parking at Spornes beach lot & Hove leirsenter. Arrive before late morning on sunny days.</li>
+      <li data-es><b>Hove / Spornes:</b> aparcamiento de pago en verano en Spornes y Hove leirsenter. Llegad antes del mediodía los días de sol.</li>
+      <li data-en><b>Grimstad:</b> Grømbukt harbourside lots (short flat walk to the quay).</li>
+      <li data-es><b>Grimstad:</b> parkings de Grømbukt junto al puerto (paseo corto y llano al muelle).</li>
+      <li data-en><b>Lillesand:</b> Lillesand Gjestehavn by the square; Tingsaker is the larger fallback (5-min walk).</li>
+      <li data-es><b>Lillesand:</b> Lillesand Gjestehavn junto a la plaza; Tingsaker es la alternativa grande (5 min andando).</li>
+      <li data-en><b>Arendal centre:</b> Pollen / Torvet car parks. Pay by app (EasyPark) or machine.</li>
+      <li data-es><b>Centro de Arendal:</b> parkings de Pollen / Torvet. Pago por app (EasyPark) o máquina.</li>
+    </ul>
+    <div class="callout">
+      <span data-en>📱 Download <b>APCOA FLOW</b> and <b>EasyPark</b> before you go — most Norwegian parking is app-paid.</span>
+      <span data-es>📱 Descargad <b>APCOA FLOW</b> y <b>EasyPark</b> antes — casi todo el aparcamiento en Noruega se paga por app.</span>
+    </div>
+  </div>
+  <div class="card">
+    <b><span data-en>🛒 Groceries (Tromøy)</span><span data-es>🛒 Supermercados (Tromøy)</span></b>
+    <ul style="padding-left:18px">
+      <li data-en>Nearest cluster: Færvik / Brattekleiv area on Tromøy (Coop, Kiwi / Rema 1000).</li>
+      <li data-es>Lo más cercano: zona de Færvik / Brattekleiv en Tromøy (Coop, Kiwi / Rema 1000).</li>
+      <li data-en>Bigger stores across the bridge at Stoa, ~10–15 min (Coop Extra, Meny).</li>
+      <li data-es>Tiendas más grandes pasando el puente en Stoa, ~10–15 min (Coop Extra, Meny).</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="hr" />
+
+<!-- ============ HIKES ============ -->
+<section id="hikes">
+  <h2><span class="emoji">🥾</span><span data-en>Hikes & walks</span><span data-es>Rutas y paseos</span></h2>
+  <p class="sub"><span data-en>S = stroller-friendly · C = bring a carrier</span>
+     <span data-es>S = apto carrito · C = mejor mochila portabebé</span></p>
+
+  <h3 style="margin:6px 0;color:var(--good);font-size:1rem"><span data-en>Easy — with the toddler & grandparents</span><span data-es>Fáciles — con el peque y los abuelos</span></h3>
+
+  <details>
+    <summary><span data-en>Hove & Spornes coast</span><span data-es>Costa de Hove y Spornes</span><span class="lvl s">S/C</span></summary>
+    <p data-en>Tromøy, ~10–15 min. 1–4 km, your own pace. Gravel roads are stroller-OK; the beach rocks need a carrier. The signature easy outing in Raet National Park, with toilets & parking.</p>
+    <p data-es>Tromøy, ~10–15 min. 1–4 km, a vuestro ritmo. Los caminos de grava admiten carrito; las rocas de la playa piden mochila. El paseo fácil por excelencia en el Parque Nacional Raet, con baños y aparcamiento.</p>
+  </details>
+  <details>
+    <summary><span data-en>Langsæ lake loop (by KUBEN)</span><span data-es>Vuelta al lago Langsæ (junto a KUBEN)</span><span class="lvl s">S</span></summary>
+    <p data-en>Arendal, ~10 min. Flat lakeside path ~2–3 km, fully stroller-friendly. Easy to combine with the KUBEN museum.</p>
+    <p data-es>Arendal, ~10 min. Camino llano junto al lago ~2–3 km, totalmente apto para carrito. Fácil de combinar con el museo KUBEN.</p>
+  </details>
+  <details>
+    <summary><span data-en>Nidelva river path</span><span data-es>Sendero del río Nidelva</span><span class="lvl s">S</span></summary>
+    <p data-en>West of Arendal (Nedenes/Rykene), ~15–20 min. Flat riverside, 2–4 km, stroller-OK on surfaced stretches. Gentle, birdlife, part of Raet National Park.</p>
+    <p data-es>Al oeste de Arendal (Nedenes/Rykene), ~15–20 min. Junto al río, llano, 2–4 km, apto carrito en los tramos pavimentados. Suave, con aves, parte del Parque Nacional Raet.</p>
+  </details>
+  <details>
+    <summary><span data-en>Pollen & Tyholmen town stroll</span><span data-es>Paseo por Pollen y Tyholmen</span><span class="lvl s">S</span></summary>
+    <p data-en>Arendal centre, ~10 min. Flat, paved, 1–3 km. Harbour, old town, cafés — great low-effort or backup walk.</p>
+    <p data-es>Centro de Arendal, ~10 min. Llano, pavimentado, 1–3 km. Puerto, casco antiguo, cafés — paseo fácil o plan B.</p>
+  </details>
+
+  <h3 style="margin:14px 0 6px;color:var(--warn);font-size:1rem"><span data-en>"Real" walks — for whoever wants more</span><span data-es>Rutas "de verdad" — para quien quiera más</span></h3>
+
+  <details>
+    <summary><span data-en>Hove round trail (Spornes rundt)</span><span data-es>Circular de Hove (Spornes rundt)</span><span class="lvl c">C</span></summary>
+    <p data-en>Tromøy, ~10–15 min. ~5–7 km loop, 1.5–2.5 hrs, easy–moderate (roots, rock, beach). Carrier for the toddler. The best gentle-but-real coastal hike, with swimming stops.</p>
+    <p data-es>Tromøy, ~10–15 min. Circular de ~5–7 km, 1,5–2,5 h, fácil-moderada (raíces, roca, playa). Mochila para el peque. La mejor ruta costera suave pero "real", con paradas para bañarse.</p>
+  </details>
+  <details>
+    <summary><span data-en>Tromøy interior viewpoint</span><span data-es>Mirador interior de Tromøy</span><span class="lvl c">C</span></summary>
+    <p data-en>Central Tromøy, ~10–15 min. ~3–5 km, 1.5–2 hrs, moderate climb. Carrier. Forest knoll with archipelago views, quieter than the coast.</p>
+    <p data-es>Centro de Tromøy, ~10–15 min. ~3–5 km, 1,5–2 h, subida moderada. Mochila. Cerro boscoso con vistas al archipiélago, más tranquilo que la costa.</p>
+  </details>
+  <details>
+    <summary><span data-en>Arendal town forest (Marka) loops</span><span data-es>Circulares del bosque de Arendal (Marka)</span><span class="lvl c">C</span></summary>
+    <p data-en>Behind Arendal, ~10–15 min. 4–6 km, moderate, lakes & ridges. Carrier off the gravel roads. A proper leg-stretch without driving far.</p>
+    <p data-es>Detrás de Arendal, ~10–15 min. 4–6 km, moderada, lagos y lomas. Mochila fuera de las pistas de grava. Un buen paseo sin conducir lejos.</p>
+  </details>
+  <div class="meta"><span data-en>Trail maps & exact distances:</span><span data-es>Mapas y distancias exactas:</span> <a class="link" href="https://ut.no" target="_blank" rel="noopener">ut.no</a></div>
+</section>
+
+<hr class="hr" />
+
+<!-- ============ RAIN ============ -->
+<section id="rain">
+  <h2><span class="emoji">🌧️</span><span data-en>If the weather goes bad</span><span data-es>Si el tiempo empeora</span></h2>
+  <p class="sub"><span data-en>Quick swaps for any day that turns wet.</span>
+     <span data-es>Cambios rápidos para cualquier día que se ponga lluvioso.</span></p>
+  <div class="card">
+    <ul style="padding-left:18px;margin:0">
+      <li data-en><b>Vitensenteret Sørlandet</b> (Arendal) — science centre, under-3s room. Closest indoor pick.</li>
+      <li data-es><b>Vitensenteret Sørlandet</b> (Arendal) — centro de ciencia, sala para menores de 3. Lo más cercano.</li>
+      <li data-en><b>Aquarama</b> (Kristiansand, ~1 hr) — indoor water park, wave pool & toddler pools.</li>
+      <li data-es><b>Aquarama</b> (Kristiansand, ~1 h) — parque acuático cubierto, piscina de olas y piscinas para bebés.</li>
+      <li data-en><b>Risør Aquarium</b> (~45–55 min) — kids feed fish, crab-fishing, touch tanks. Daily 11:00–16:00.</li>
+      <li data-es><b>Acuario de Risør</b> (~45–55 min) — los niños dan de comer a los peces, pesca de cangrejos. A diario 11:00–16:00.</li>
+      <li data-en><b>Indoor play / lekeland</b> in the Arendal area — burn toddler energy.</li>
+      <li data-es><b>Parque infantil cubierto / lekeland</b> en la zona de Arendal — para gastar energía.</li>
+      <li data-en><b>Boat → town:</b> if the Merdø/boat day rains, do a covered MS Nidelv tour or a town stroll (Arendal/Grimstad arcades & cafés).</li>
+      <li data-es><b>Barco → pueblo:</b> si el día de Merdø/barco llueve, haced el tour cubierto del MS Nidelv o pasead por un pueblo (cafés de Arendal/Grimstad).</li>
+    </ul>
+  </div>
+  <div class="callout">
+    <span data-en>🦁 <b>Dyreparken in light rain?</b> It works (some covered areas, animals are active in cool weather), but it's a big outdoor hilly park — in heavy rain with a toddler it's hard going. Keep it on a dry day if you can; that's why it's on Wednesday.</span>
+    <span data-es>🦁 <b>¿Dyreparken con lluvia floja?</b> Funciona (hay zonas cubiertas y los animales están activos con fresco), pero es un parque grande, al aire libre y con cuestas — con lluvia fuerte y un bebé se hace duro. Dejadlo para un día seco si podéis; por eso está el miércoles.</span>
+  </div>
+</section>
+
+<hr class="hr" />
+
+<!-- ============ MUSEUMS ============ -->
+<section id="museums">
+  <h2><span class="emoji">🏛️</span><span data-en>Museums (optional / rainy day)</span><span data-es>Museos (opcional / día de lluvia)</span></h2>
+  <p class="sub"><span data-en>Children 0–18 are free at most of these.</span>
+     <span data-es>Niños de 0 a 18 años gratis en la mayoría.</span></p>
+
+  <details>
+    <summary><span data-en>Vitensenteret Sørlandet · science</span><span data-es>Vitensenteret Sørlandet · ciencia</span></summary>
+    <p data-en>Arendal waterfront, ~5–10 min. Hands-on science centre with an under-3s room & café. Best with the toddler. ~11:00–16:00 in summer (verify price/hours).</p>
+    <p data-es>Puerto de Arendal, ~5–10 min. Centro de ciencia interactivo con sala para menores de 3 y café. El mejor con el peque. ~11:00–16:00 en verano (confirmad precio/horario).</p>
+  </details>
+  <details>
+    <summary><span data-en>KUBEN · regional history</span><span data-es>KUBEN · historia regional</span></summary>
+    <p data-en>Arendal, ~10 min. Cultural-history museum, maritime exhibits, giant walk-in book, café. Adult 100 NOK, kids free. Summer: Mon–Fri 10–17, Sat–Sun 12–17.</p>
+    <p data-es>Arendal, ~10 min. Museo de historia cultural, exhibiciones marítimas, libro gigante, café. Adulto 100 NOK, niños gratis. Verano: L–V 10–17, S–D 12–17.</p>
+  </details>
+  <details>
+    <summary><span data-en>Bomuldsfabriken · contemporary art</span><span data-es>Bomuldsfabriken · arte contemporáneo</span></summary>
+    <p data-en>Arendal, ~10 min. Big contemporary-art hall in an old cotton factory + outdoor sculpture park in 400-yr-old mines (buggy-friendly). FREE. Tue–Sun 11–17 (Thu to 20), closed Mon.</p>
+    <p data-es>Arendal, ~10 min. Gran sala de arte contemporáneo en una antigua fábrica de algodón + parque de esculturas al aire libre en minas de 400 años (apto carrito). GRATIS. M–D 11–17 (J hasta 20), lunes cerrado.</p>
+  </details>
+  <details>
+    <summary><span data-en>Grimstad Maritime Museum</span><span data-es>Museo Marítimo de Grimstad</span></summary>
+    <p data-en>Grimstad, ~25–30 min. Family-friendly maritime museum on an old shipyard — ship models, hands-on, room to roam. Best of the Grimstad set for a toddler. Adult 100 NOK. Daily 10–15.</p>
+    <p data-es>Grimstad, ~25–30 min. Museo marítimo apto para familias en un antiguo astillero — maquetas, interactivo, espacio para moverse. El mejor de Grimstad para el peque. Adulto 100 NOK. A diario 10–15.</p>
+  </details>
+  <details>
+    <summary><span data-en>Ibsen House · Grimstad</span><span data-es>Casa de Ibsen · Grimstad</span></summary>
+    <p data-en>Grimstad, ~25–30 min. The apothecary where Ibsen wrote Catilina. Guided only (English 12:00 & 15:00). Adult 100 NOK. Daily 11–16. So-so for toddlers but short.</p>
+    <p data-es>Grimstad, ~25–30 min. La botica donde Ibsen escribió Catilina. Solo con guía (en inglés 12:00 y 15:00). Adulto 100 NOK. A diario 11–16. Regular para bebés pero corto.</p>
+  </details>
+  <details>
+    <summary><span data-en>Næs Ironworks Museum · Tvedestrand</span><span data-es>Museo de la Ferrería Næs · Tvedestrand</span></summary>
+    <p data-en>~30–35 min. Norway's best-preserved ironworks — blast furnace with working water wheel, hourly tours 11–16. Adult 120 / family 300 NOK. Carrier handy.</p>
+    <p data-es>~30–35 min. La ferrería mejor conservada de Noruega — alto horno con rueda hidráulica en funcionamiento, visitas cada hora 11–16. Adulto 120 / familia 300 NOK. Mejor con mochila.</p>
+  </details>
+  <details>
+    <summary><span data-en>Risør Aquarium</span><span data-es>Acuario de Risør</span></summary>
+    <p data-en>~45–55 min. Southern Norway's only saltwater aquarium — 100+ species, feed the fish, crab-fishing, colour-your-fish room. Excellent for toddlers. Daily 11–16.</p>
+    <p data-es>~45–55 min. El único acuario de agua salada del sur de Noruega — más de 100 especies, dar de comer a los peces, pesca de cangrejos. Excelente para bebés. A diario 11–16.</p>
+  </details>
+  <details>
+    <summary><span data-en>Merdøgaard · Merdø island</span><span data-es>Merdøgaard · isla de Merdø</span></summary>
+    <p data-en>Ferry from Pollen. Preserved 1700s coastal home — pairs boat + beach + museum into one toddler-friendly day. Daily in summer.</p>
+    <p data-es>Ferry desde Pollen. Casa costera del siglo XVIII conservada — combina barco + playa + museo en un día apto para el peque. A diario en verano.</p>
+  </details>
+</section>
+
+</div>
+
+<footer>
+  <p data-en>Made for our Arendal trip · prices & hours can change, check official sites before going.</p>
+  <p data-es>Hecho para nuestro viaje a Arendal · precios y horarios pueden cambiar, comprobad las webs oficiales antes de ir.</p>
+</footer>
+
+<script>
+  function setLang(l){
+    document.documentElement.lang = l;
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-es').classList.toggle('active', l==='es');
+    try{ localStorage.setItem('arendal-lang', l); }catch(e){}
+  }
+  (function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('arendal-lang'); }catch(e){}
+    if(saved!=='en' && saved!=='es'){
+      var nav = (navigator.language||'').toLowerCase();
+      saved = nav.indexOf('es')===0 ? 'es' : 'en';
+    }
+    setLang(saved);
+  })();
+</script>
+</body>
+</html>
