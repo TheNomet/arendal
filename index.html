@@ -99,9 +99,23 @@
   .bday{background:linear-gradient(135deg,#fff,#fdf3e3); border-color:#f0d9b0}
   .bday .tag.party{background:#f6dcdc; color:#b2362f}
   .bday-photo{display:block; width:100%; max-width:340px; margin:10px auto 4px;
-    border-radius:16px; aspect-ratio:1/1; object-fit:cover; box-shadow:0 4px 14px rgba(0,0,0,.12)}
+    border-radius:16px; object-fit:cover; box-shadow:0 4px 14px rgba(0,0,0,.12)}
   .bday-cap{text-align:center; font-size:.82rem; color:var(--muted); margin:2px 0 8px}
   .bday-cap a{color:var(--sea); text-decoration:none; font-weight:600}
+  /* per-day walks folder */
+  .walks{margin:12px 0 2px; border:1px solid #cfe6dd; background:#f3faf6; border-radius:12px; padding:2px 12px}
+  .walks summary{padding:11px 0; font-weight:600; color:var(--good); font-size:.92rem; list-style:none; cursor:pointer}
+  .walks summary::-webkit-details-marker{display:none}
+  .walks summary::before{content:"🥾 "}
+  .walks summary::after{content:"+"; float:right; color:var(--good); font-weight:700}
+  .walks[open] summary::after{content:"–"}
+  .walks .w{padding:6px 0; border-top:1px dashed #cfe6dd; font-size:.9rem}
+  .walks .w:first-of-type{border-top:0}
+  .walks .w b{color:var(--ink)}
+  .walks .w .det{display:block; color:var(--muted); font-size:.8rem; margin-top:1px}
+  .walks .wlvl{font-size:.68rem; font-weight:700; padding:1px 6px; border-radius:5px; margin-left:4px}
+  .walks .wlvl.s{background:#dff0e6; color:var(--good)}
+  .walks .wlvl.l{background:#fdebd0; color:var(--warn)}
 </style>
 </head>
 <body>
@@ -147,13 +161,11 @@
       <span class="day-date"><span data-en>Sun 28 Jun · arrival</span><span data-es>Dom 28 jun · llegada</span></span>
       <span class="day-title"><span data-en>Mama's birthday in Arendal</span><span data-es>El cumple de mamá en Arendal</span></span>
     </div>
-    <a href="bday-full.jpg" target="_blank" rel="noopener">
-      <img class="bday-photo" src="bday-face.jpg"
-           alt="Birthday in Arendal" loading="lazy" />
-    </a>
+    <img class="bday-photo" src="bday-face.jpg"
+         alt="Birthday in Arendal" loading="lazy" />
     <p class="bday-cap">
-      <span data-en>We arrived & celebrated — tap the photo for the full picture 💛</span>
-      <span data-es>Llegamos y lo celebramos — toca la foto para verla completa 💛</span>
+      <span data-en>We arrived & celebrated 💛</span>
+      <span data-es>Llegamos y lo celebramos 💛</span>
     </p>
     <ul>
       <li data-en>Arrived in the afternoon and explored Arendal town to celebrate.</li>
@@ -178,6 +190,15 @@
       <li data-es>Opcional: la ruta circular de Hove para quien quiera pasear un poco.</li>
     </ul>
     <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Spornes car park (<span data-en>arrive before late morning</span><span data-es>llegad antes del mediodía</span>) <span data-en>or</span><span data-es>o</span> Hove leirsenter.</div>
+    <details class="walks">
+      <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
+      <div class="w"><b><span data-en>Hoveodden coast stroll</span><span data-es>Paseo costero de Hoveodden</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~3.5 km · ~1 hr · flat, stroller-OK. Level path around Hoveodden with views to the Torungene lighthouses; Bronze/Iron Age burial mounds. Turn back anytime.</span><span data-es>~3,5 km · ~1 h · llano, apto carrito. Camino llano alrededor de Hoveodden con vistas a los faros Torungene; túmulos de la Edad de Bronce/Hierro. Volved cuando queráis.</span></span>
+      </div>
+      <div class="w"><b><span data-en>Hove–Spornes–Botne round</span><span data-es>Circular Hove–Spornes–Botne</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
+        <span class="det"><span data-en>~12.5 km · ~4 hrs · moderate. The full classic via Spornes pebble beaches, Tromøy church & Botne. Café stop at Studio Spornes (cinnamon buns) by the trailhead.</span><span data-es>~12,5 km · ~4 h · moderada. La clásica completa por las playas de cantos de Spornes, la iglesia de Tromøy y Botne. Café en Studio Spornes (bollos de canela) junto al inicio.</span></span>
+      </div>
+    </details>
   </div>
 
   <!-- TUE 30 -->
@@ -194,6 +215,15 @@
       <li data-es>Comer: <b>Herlighed</b> (café casero) o <b>Apotekergaarden</b> (patio). Helado en los quioscos del puerto.</li>
     </ul>
     <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Grømbukt <span data-en>harbourside lots.</span><span data-es>junto al puerto.</span></div>
+    <details class="walks">
+      <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
+      <div class="w"><b><span data-en>Dømmesmoen park & arboretum</span><span data-es>Parque y arboreto de Dømmesmoen</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~1.5–2.5 km · 30–60 min · flat gravel. Manicured park & arboretum just outside town: roses, pond, old oak, burial mounds. Lovely relaxed wander.</span><span data-es>~1,5–2,5 km · 30–60 min · grava llana. Parque y arboreto cuidado a las afueras: rosas, estanque, roble antiguo, túmulos. Paseo tranquilo y bonito.</span></span>
+      </div>
+      <div class="w"><b><span data-en>Dømmesmoen + Frivolldalen round (lookout tower)</span><span data-es>Circular Dømmesmoen + Frivolldalen (torre mirador)</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
+        <span class="det"><span data-en>~6–7 km · ~2 hrs · easy–moderate. Forest loop up to the Utkikkstårnet lookout (views over town & sea), along the Raet ridge and back. Also nearby: Fjæreheia granite quarry & Binabben viewpoint.</span><span data-es>~6–7 km · ~2 h · fácil-moderada. Vuelta por el bosque hasta la torre Utkikkstårnet (vistas al pueblo y al mar), por la cresta de Raet y vuelta. Cerca: cantera de Fjæreheia y mirador de Binabben.</span></span>
+      </div>
+    </details>
   </div>
 
   <!-- WED 1 -->
@@ -222,6 +252,16 @@
       <span data-en>⚠️ <b>Parking — foreign plates:</b> pay <b>before leaving</b> via the <b>APCOA FLOW</b> app (download in advance) or at machines; postal invoices abroad are unreliable. ~130 NOK/day. Your two cars may be sent to different lots — <b>agree a meeting point</b>.</span>
       <span data-es>⚠️ <b>Aparcamiento — matrícula extranjera:</b> pagad <b>antes de salir</b> con la app <b>APCOA FLOW</b> (descargadla antes) o en las máquinas; las facturas por correo al extranjero no son fiables. ~130 NOK/día. Vuestros dos coches pueden ir a parkings distintos — <b>quedad en un punto de encuentro</b>.</span>
     </div>
+    <details class="walks">
+      <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
+      <div class="w"><span class="det" style="margin:0 0 4px"><span data-en>The zoo itself is a big walking day — these are only if the keen walkers want extra near Kristiansand.</span><span data-es>El zoo ya es un día de mucho andar — esto es solo si las caminantes quieren algo extra cerca de Kristiansand.</span></span></div>
+      <div class="w"><b>Odderøya</b><span class="wlvl s"><span data-en>easy–mod</span><span data-es>fácil-mod</span></span>
+        <span class="det"><span data-en>~3–4 km loop · 1–1.5 hrs. Former fortress island by central Kristiansand (on foot via bridges) — trails, swimming coves, sea views, lighthouse point.</span><span data-es>~3–4 km circular · 1–1,5 h. Antigua isla fortaleza junto al centro de Kristiansand (a pie por puentes) — senderos, calas, vistas al mar, faro.</span></span>
+      </div>
+      <div class="w"><b>Baneheia</b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~2–3 km · ~45 min. Forested lake park behind the city centre — gentle paths around the ponds. A quick green leg-stretch.</span><span data-es>~2–3 km · ~45 min. Parque boscoso con lagos detrás del centro — caminos suaves alrededor de los estanques. Un paseo verde rápido.</span></span>
+      </div>
+    </details>
   </div>
 
   <!-- THU 2 -->
@@ -240,6 +280,15 @@
       <li data-en>Keep driving minimal today. See the <a class="link" href="#museums">Museums</a> & <a class="link" href="#rain">If it rains</a> sections for more.</li>
       <li data-es>Conducid lo mínimo hoy. Mirad las secciones <a class="link" href="#museums">Museos</a> y <a class="link" href="#rain">Si llueve</a>.</li>
     </ul>
+    <details class="walks">
+      <summary><span data-en>Walks here (rain-friendly)</span><span data-es>Rutas aquí (aptas con lluvia)</span></summary>
+      <div class="w"><b><span data-en>Langsæ lake loop</span><span data-es>Vuelta al lago Langsæ</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~2–3 km · flat, by KUBEN. A sheltered green loop between showers; trees give some cover.</span><span data-es>~2–3 km · llano, junto a KUBEN. Vuelta verde y resguardada entre chubascos; los árboles dan algo de cobijo.</span></span>
+      </div>
+      <div class="w"><b><span data-en>Barbudalen river valley</span><span data-es>Valle del río Barbudalen</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
+        <span class="det"><span data-en>~4–6 km · easy–moderate. Leafy river-valley walk from the centre, more sheltered than the open coast. Good rain-gear day for the keen walkers.</span><span data-es>~4–6 km · fácil-moderada. Paseo frondoso por el valle del río desde el centro, más resguardado que la costa abierta. Buen día de chubasquero para las caminantes.</span></span>
+      </div>
+    </details>
   </div>
 
   <!-- FRI 3 -->
@@ -258,6 +307,15 @@
       <li data-es>Mejor pasear por el pueblo que ir en barco hoy — demasiado viento en el mar.</li>
     </ul>
     <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Lillesand Gjestehavn (<span data-en>Tingsaker is the bigger fallback, 5-min walk</span><span data-es>Tingsaker es la alternativa grande, a 5 min andando</span>).</div>
+    <details class="walks">
+      <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
+      <div class="w"><b><span data-en>Harbour & old-town stroll</span><span data-es>Paseo por el puerto y el casco antiguo</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~1.5–2 km · 30–45 min · flat. The white streets and harbour front by the Blindleia waterfront. Effortless for the whole family.</span><span data-es>~1,5–2 km · 30–45 min · llano. Las calles blancas y el frente portuario junto al Blindleia. Sin esfuerzo para toda la familia.</span></span>
+      </div>
+      <div class="w"><b><span data-en>Coastal path toward Kjerlingland / Høvåg</span><span data-es>Sendero costero hacia Kjerlingland / Høvåg</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
+        <span class="det"><span data-en>~5–8 km (pick your turnaround) · 1.5–2.5 hrs · moderate. Marked coastal path SW along the skerries — rocky shore, sea views, quiet coves. Out-and-back, go as far as you like.</span><span data-es>~5–8 km (volved donde queráis) · 1,5–2,5 h · moderada. Sendero costero marcado al SO por los islotes — costa rocosa, vistas al mar, calas tranquilas. Ida y vuelta, hasta donde queráis.</span></span>
+      </div>
+    </details>
   </div>
 
   <!-- SAT 4 -->
@@ -279,6 +337,12 @@
       <span data-en>🌧️ <b>If showers settle in:</b> swap to the <b>MS Nidelv</b> archipelago tour (12:00 / 14:30, ~1 hr, covered boat).</span>
       <span data-es>🌧️ <b>Si se pone a llover:</b> cambiad al tour por el archipiélago en el <b>MS Nidelv</b> (12:00 / 14:30, ~1 h, barco cubierto).</span>
     </div>
+    <details class="walks">
+      <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
+      <div class="w"><b><span data-en>Merdø island round</span><span data-es>Vuelta a la isla de Merdø</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~2.8 km · ~1 hr · easy. One loop covers the whole island: old pilot lookout (compass rose, "1654" rock, cannon), customs house, shore path, Merdøgaard museum & swimming beach. Easy enough for all, with plenty to see.</span><span data-es>~2,8 km · ~1 h · fácil. Una vuelta cubre toda la isla: antiguo puesto del piloto (rosa de los vientos, roca "1654", cañón), aduana, sendero costero, museo Merdøgaard y playa de baño. Fácil para todos, con mucho que ver.</span></span>
+      </div>
+    </details>
   </div>
 
   <!-- SUN 5 -->
@@ -292,6 +356,15 @@
       <li data-en>One last beach morning at Hove, or whatever you skipped during the week.</li>
       <li data-es>Última mañana de playa en Hove, o lo que os quedara pendiente de la semana.</li>
     </ul>
+    <details class="walks">
+      <summary><span data-en>Walks near base (Tromøy)</span><span data-es>Rutas cerca de casa (Tromøy)</span></summary>
+      <div class="w"><b><span data-en>Spornesstranda beach walk</span><span data-es>Paseo por la playa de Spornesstranda</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~2 km · 30–45 min · easy. Out to Spornespynten along the pebble/sand beach — open sea, big skies, very relaxed.</span><span data-es>~2 km · 30–45 min · fácil. Hasta Spornespynten por la playa de cantos/arena — mar abierto, cielos amplios, muy relajado.</span></span>
+      </div>
+      <div class="w"><b><span data-en>Tromøy church → Bjellandstrand → Botne</span><span data-es>Iglesia de Tromøy → Bjellandstrand → Botne</span></b><span class="wlvl l"><span data-en>med</span><span data-es>media</span></span>
+        <span class="det"><span data-en>~3–4 km one-way · 1–1.5 hrs · easy–moderate. Gentle historic stretch past Tromøy church to the sea at Botne. (Full Hove–Spornes–Botne round ~12.5 km for the keen walkers.)</span><span data-es>~3–4 km solo ida · 1–1,5 h · fácil-moderada. Tramo histórico suave pasando la iglesia de Tromøy hasta el mar en Botne. (La circular completa Hove–Spornes–Botne ~12,5 km para las caminantes.)</span></span>
+      </div>
+    </details>
   </div>
 </section>
 
