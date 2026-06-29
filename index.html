@@ -95,6 +95,13 @@
   html[lang="es"] [data-en]{display:none}
   html[lang="es"] [data-es]{display:revert}
   .hr{height:1px;background:var(--line);border:0;margin:18px 0}
+  /* birthday card */
+  .bday{background:linear-gradient(135deg,#fff,#fdf3e3); border-color:#f0d9b0}
+  .bday .tag.party{background:#f6dcdc; color:#b2362f}
+  .bday-photo{display:block; width:100%; max-width:340px; margin:10px auto 4px;
+    border-radius:16px; aspect-ratio:1/1; object-fit:cover; box-shadow:0 4px 14px rgba(0,0,0,.12)}
+  .bday-cap{text-align:center; font-size:.82rem; color:var(--muted); margin:2px 0 8px}
+  .bday-cap a{color:var(--sea); text-decoration:none; font-weight:600}
 </style>
 </head>
 <body>
@@ -132,6 +139,27 @@
   <h2><span class="emoji">🗓️</span><span data-en>Day by day</span><span data-es>Día a día</span></h2>
   <p class="sub"><span data-en>Outdoor plans matched to the weather. Thursday is the rainy day → indoor.</span>
      <span data-es>Planes al aire libre según el tiempo. El jueves llueve → plan de interior.</span></p>
+
+  <!-- SUN 28 - BIRTHDAY -->
+  <div class="card bday">
+    <span class="tag party">🎂 <span data-en>Happy birthday!</span><span data-es>¡Feliz cumpleaños!</span></span>
+    <div class="day-head">
+      <span class="day-date"><span data-en>Sun 28 Jun · arrival</span><span data-es>Dom 28 jun · llegada</span></span>
+      <span class="day-title"><span data-en>Mama's birthday in Arendal</span><span data-es>El cumple de mamá en Arendal</span></span>
+    </div>
+    <a href="bday-full.jpg" target="_blank" rel="noopener">
+      <img class="bday-photo" src="bday-face.jpg"
+           alt="Birthday in Arendal" loading="lazy" />
+    </a>
+    <p class="bday-cap">
+      <span data-en>We arrived & celebrated — tap the photo for the full picture 💛</span>
+      <span data-es>Llegamos y lo celebramos — toca la foto para verla completa 💛</span>
+    </p>
+    <ul>
+      <li data-en>Arrived in the afternoon and explored Arendal town to celebrate.</li>
+      <li data-es>Llegamos por la tarde y paseamos por Arendal para celebrarlo.</li>
+    </ul>
+  </div>
 
   <!-- MON 29 -->
   <div class="card">
