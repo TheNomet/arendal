@@ -71,8 +71,6 @@
   .tag.big{background:#fdebd0; color:var(--warn)}
   .tag.easy{background:#dff0e6; color:var(--good)}
   .tag.rain{background:#fce0dd; color:var(--bad)}
-  .tag.done{background:#dfe7e9; color:#5b6b6f}
-  .card.done{opacity:.72}
   ul{margin:8px 0 0; padding-left:20px}
   li{margin:5px 0}
   .meta{font-size:.85rem; color:var(--muted); margin-top:8px}
@@ -128,15 +126,29 @@
   .hist .h{padding:7px 0; border-top:1px dashed #e0d3ea; font-size:.88rem; color:var(--ink)}
   .hist .h:first-of-type{border-top:0}
   .hist .h b{color:#5a3d73}
+  /* per-day itinerary folder */
+  .plan{margin:10px 0 2px; border:1px solid #cfe2e8; background:#eef6f8; border-radius:12px; padding:2px 12px}
+  .plan summary{padding:11px 0; font-weight:600; color:var(--sea-d); font-size:.92rem; list-style:none; cursor:pointer}
+  .plan summary::-webkit-details-marker{display:none}
+  .plan summary::after{content:"+"; float:right; color:var(--sea-d); font-weight:700}
+  .plan[open] summary::after{content:"–"}
+  .plan ul{margin:2px 0 10px; padding-left:18px}
+  .plan li{font-size:.88rem; color:var(--ink); margin:4px 0}
+  .plan .t{font-weight:700; color:var(--sea-d)}
+  .plan a{color:var(--sea); font-weight:600; text-decoration:none}
   /* day phase blocks (morning/lunch/afternoon) */
   .phase{margin:12px 0 0; padding:10px 12px; border-radius:12px; background:var(--sand); border:1px solid var(--line)}
   .phase + .phase{margin-top:8px}
   .phase .ph{display:block; font-size:.72rem; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--sea); margin-bottom:3px}
-  .phase.lunch{background:#fdf6ec; border-color:#f0dcc0}
+  .phase.am{background:#fdf2e3; border-color:#f0d9b0}
+  .phase.am .ph{color:var(--warn)}
+  .phase.lunch{background:#fdf2e3; border-color:#f0d9b0}
   .phase.lunch .ph{color:var(--warn)}
   .phase.pm{background:#eef6f8; border-color:#cfe2e8}
   .phase.pm .ph{color:var(--sea-d)}
   .phase p{margin:0; font-size:.9rem}
+  .phase p .warn{color:var(--warn)}
+  .callout .warn, .phase p .warn, .plan .warn{color:var(--warn)}
 </style>
 </head>
 <body>
@@ -201,20 +213,22 @@
   </div>
 
   <!-- MON 29 -->
-  <div class="card done">
-    <span class="tag done">✓ <span data-en>Done</span><span data-es>Hecho</span></span>
+   <div class="card">
+     <span class="tag easy"><span data-en>Beach + town</span><span data-es>Playa + pueblo</span></span>
     <div class="day-head">
       <span class="day-date"><span data-en>Mon 29 Jun</span><span data-es>Lun 29 jun</span></span>
       <span class="day-title"><span data-en>Hove beach + Grimstad</span><span data-es>Playa de Hove + Grimstad</span></span>
     </div>
     <span class="wx good">☀️ 22°C · <span data-en>dry, scattered cloud</span><span data-es>seco, nubes dispersas</span></span>
-    <ul>
-      <li data-en><b>Morning:</b> Hove & Spornes beaches (Raet National Park) — rock & sand, water play, lighthouse views.</li>
-      <li data-es><b>Por la mañana:</b> playas de Hove y Spornes (Parque Nacional Raet) — roca y arena, juego con agua, vistas a los faros.</li>
-      <li data-en><b>Afternoon:</b> Grimstad — the pretty white-house harbour town, a stroll and a wander.</li>
-      <li data-es><b>Por la tarde:</b> Grimstad — el bonito pueblo portuario de casas blancas, un paseo tranquilo.</li>
-    </ul>
-    <div class="meta"><span data-en>Both done in one day! 🎉 So Tuesday is now a fresh, open day (see below).</span><span data-es>¡Los dos en un día! 🎉 Así que el martes queda libre para algo nuevo (mirad abajo).</span></div>
+    <div class="phase am">
+      <span class="ph">🌅 <span data-en>Morning · Hove & Spornes</span><span data-es>Por la mañana · Hove y Spornes</span></span>
+      <p><span data-en>Hove & Spornes beaches (Raet National Park) — rock & sand, water play, lighthouse views.</span><span data-es>Playas de Hove y Spornes (Parque Nacional Raet) — roca y arena, juego con agua, vistas a los faros.</span></p>
+    </div>
+    <div class="phase pm">
+      <span class="ph">🏘️ <span data-en>Afternoon · Grimstad</span><span data-es>Por la tarde · Grimstad</span></span>
+      <p><span data-en>The pretty white-house harbour town — a stroll and a wander.</span><span data-es>El bonito pueblo portuario de casas blancas — un paseo tranquilo.</span></p>
+    </div>
+    <div class="meta"><span data-en>Easy to do both in one day — beach in the morning, town in the afternoon.</span><span data-es>Fácil hacer ambos en un día — playa por la mañana, pueblo por la tarde.</span></div>
     <details class="walks">
       <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
       <div class="w"><b><span data-en>Hoveodden coast stroll</span><span data-es>Paseo costero de Hoveodden</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
@@ -229,12 +243,13 @@
       <div class="h"><span data-en><b>A ridge dumped by a glacier.</b> "Raet" is the long <b>moraine</b> — a wall of boulders, gravel and sand left ~12,000 years ago as the last ice sheet melted. The sheltered stretches at Hove and Merdø became the fine beaches loved today.</span><span data-es><b>Una cresta dejada por un glaciar.</b> "Raet" es la larga <b>morrena</b> — un muro de cantos, grava y arena dejado hace ~12.000 años al fundirse el último casquete de hielo. Los tramos resguardados de Hove y Merdø se convirtieron en las playas que hoy se disfrutan.</span></div>
       <div class="h"><span data-en><b>Burial mounds & a sacred name.</b> Hove has 17 burial mounds from the Bronze Age to the Vikings, and was part of a Viking kingdom around 800 AD. The name <i>Hove</i> hints at a pagan place of worship (a <i>hof</i>).</span><span data-es><b>Túmulos y un nombre sagrado.</b> Hove tiene 17 túmulos funerarios desde la Edad de Bronce hasta los vikingos, y formó parte de un reino vikingo hacia el 800 d.C. El nombre <i>Hove</i> alude a un lugar de culto pagano (un <i>hof</i>).</span></div>
       <div class="h"><span data-en><b>A wartime camp.</b> In WWII the German forces took over Hove, building radar, a bunker and an anti-aircraft school (1941–44). <b>Fun fact:</b> Norway's first recorded potato crop was grown right here at Hove Farm — noted "coming up" on 31 May 1757. Raet became a national park in 2016.</span><span data-es><b>Un campamento de guerra.</b> En la II Guerra Mundial las fuerzas alemanas ocuparon Hove, con radar, un búnker y una escuela antiaérea (1941–44). <b>Curiosidad:</b> la primera cosecha de patatas registrada en Noruega se cultivó aquí, en la granja de Hove — anotada "brotando" el 31 de mayo de 1757. Raet es parque nacional desde 2016.</span></div>
+      <div class="h"><span data-en><b>Grimstad — where Ibsen wrote his first play.</b> A teenage Henrik Ibsen was a pharmacist's apprentice here (1844–1850) and wrote his first play, <i>Catilina</i>. A 1500s harbour and smugglers' haunt, blockaded by the Royal Navy in the Napoleonic Wars; Nobel laureate Knut Hamsun later lived at nearby Nørholm.</span><span data-es><b>Grimstad — donde Ibsen escribió su primera obra.</b> Un joven Henrik Ibsen fue aprendiz de boticario aquí (1844–1850) y escribió su primera obra, <i>Catilina</i>. Puerto del siglo XVI y guarida de contrabandistas, bloqueado por la Marina británica en las Guerras Napoleónicas; el Nobel Knut Hamsun vivió luego en la cercana Nørholm.</span></div>
     </details>
   </div>
 
   <!-- TUE 30 -->
   <div class="card">
-    <span class="tag easy"><span data-en>New plan · today</span><span data-es>Nuevo plan · hoy</span></span>
+    <span class="tag easy"><span data-en>Boats + white town</span><span data-es>Barcos + ciudad blanca</span></span>
     <div class="day-head">
       <span class="day-date"><span data-en>Tue 30 Jun</span><span data-es>Mar 30 jun</span></span>
       <span class="day-title"><span data-en>Risør — the white town</span><span data-es>Risør — la ciudad blanca</span></span>
@@ -244,7 +259,7 @@
       <li data-en>~1 hr NE (E18 → Akland → Fv416). Norway's prettiest preserved white wooden town, on the Skagerrak. Park at <b>Tjenna</b> (~10 min flat walk in) — arrive before ~11:00 in peak season.</li>
       <li data-es>~1 h al NE (E18 → Akland → Fv416). La ciudad de casas blancas de madera mejor conservada de Noruega, en el Skagerrak. Aparcad en <b>Tjenna</b> (~10 min andando llano) — llegad antes de las ~11:00 en temporada alta.</li>
     </ul>
-    <div class="phase">
+    <div class="phase am">
       <span class="ph">🌅 <span data-en>Morning</span><span data-es>Por la mañana</span></span>
       <p><span data-en>Harbour & white-town stroll along <b>Strandgata</b> (flat, stroller-easy), then the <b>Risør Akvarium</b> (open daily 11:00–16:00). Small (~45 min) but a toddler hit: <b>feed the fish</b>, crab-fishing, draw-your-fish room.</span><span data-es>Paseo por el puerto y la ciudad blanca por <b>Strandgata</b> (llano, fácil con carrito), y luego el <b>Acuario de Risør</b> (abierto a diario 11:00–16:00). Pequeño (~45 min) pero un éxito para el peque: <b>dar de comer a los peces</b>, pesca de cangrejos, sala para dibujar tu pez.</span></p>
     </div>
@@ -264,7 +279,7 @@
       <span class="ph">🥾 <span data-en>Afternoon hike · Urheia → Risørflekken</span><span data-es>Caminata de tarde · Urheia → Risørflekken</span></span>
       <p><span data-en>Risør's town hill (90 m) and its best walk — a forest recreation area right above the centre. The reward: <b>Risørflekken</b>, a 1600s white sea-mark with a panorama over the town, skerries & Skagerrak, plus a WWII coastal fort (<b>"Festung Urheia"</b> — bunkers, trenches, cannon positions, a command bunker) and two small swimming lakes. Very family-friendly; toilets & parking at the top (<b>Buvikbakken</b>), or walk up the <b>kultursti</b> from Torvet 1 in the centre. Carrier for Mikel.</span><span data-es>La colina de Risør (90 m) y su mejor paseo — una zona forestal justo encima del centro. La recompensa: <b>Risørflekken</b>, una marca marina blanca del siglo XVII con panorámica sobre la ciudad, los islotes y el Skagerrak, además de un fuerte costero de la II Guerra Mundial (<b>"Festung Urheia"</b> — búnkeres, trincheras, posiciones de cañón, un búnker de mando) y dos pequeños lagos de baño. Muy familiar; baños y aparcamiento arriba (<b>Buvikbakken</b>), o subid por la <b>kultursti</b> desde Torvet 1 en el centro. Mochila para Mikel.</span></p>
     </div>
-    <div class="phase">
+    <div class="phase pm">
       <span class="ph">🍦 <span data-en>On the way home · Tvedestrand ice cream</span><span data-es>De vuelta a casa · helado en Tvedestrand</span></span>
       <p><span data-en>Tvedestrand is right on the route home (just off the E18, ~25–30 min from Risør). Stop at the harbour (<b>Brygga</b>) for ice cream and a short waterfront wander — the book town's pretty quay. Then ~30 min home to Tromøy.</span><span data-es>Tvedestrand está justo en el camino de vuelta (junto a la E18, ~25–30 min de Risør). Parad en el puerto (<b>Brygga</b>) para un helado y un paseo corto junto al agua — el bonito muelle de la ciudad de los libros. Luego ~30 min a casa, a Tromøy.</span></p>
     </div>
@@ -298,23 +313,40 @@
     </div>
     <span class="wx good">☀️ 22°C · <span data-en>dry</span><span data-es>seco</span></span>
     <ul>
-      <li data-en>~55–65 min via E18. Open <b>09:00–19:00</b>. Go early (09:30–10:00) to beat queues & see animals before nap.</li>
-      <li data-es>~55–65 min por la E18. Abre <b>09:00–19:00</b>. Id pronto (09:30–10:00) para evitar colas y ver animales antes de la siesta.</li>
-      <li data-en><b>Buy tickets online in advance</b> — peak-July prices rise during the day.</li>
-      <li data-es><b>Comprad las entradas online por adelantado</b> — en julio el precio sube a lo largo del día.</li>
-      <li data-en><b>Toddler focus (don't do it all):</b> farm/petting area, Nordic animals (moose, wolves, lynx), Kaptein Sabeltann train, Hakkebakkeskogen, Kardemomme By, playgrounds.</li>
-      <li data-es><b>Para el peque (no intentéis verlo todo):</b> la granja, animales nórdicos (alces, lobos, linces), el tren de Kaptein Sabeltann, Hakkebakkeskogen, Kardemomme By, zonas de juego.</li>
-      <li data-en>Food: picnic allowed (lots of benches) + one hot item. Bakery + playground in Hakkebakkeskogen.</li>
-      <li data-es>Comida: se puede llevar picnic (hay muchos bancos) + algo caliente. Panadería + parque infantil en Hakkebakkeskogen.</li>
+      <li data-en><b>The big one — and worth every krone.</b> Norway's #1 family attraction: a proper zoo, a Sabeltann pirate world, the real <b>Kardemomme By</b> from the storybook, and rides — all in one ticket. An easy full day; you won't see it all.</li>
+      <li data-es><b>El plan estrella — y vale cada corona.</b> La atracción familiar nº 1 de Noruega: un zoo de verdad, el mundo pirata de Sabeltann, la auténtica <b>Kardemomme By</b> del cuento y atracciones — todo en una entrada. Un día entero fácil; no os dará tiempo a verlo todo.</li>
+      <li data-en>🦁 <b>For Mikel:</b> wide-eyed at moose, wolves & lynx up close, a train ride, a carousel, playgrounds everywhere — pure toddler heaven.</li>
+      <li data-es>🦁 <b>Para Mikel:</b> ojos como platos viendo alces, lobos y linces de cerca, un tren, un carrusel y parques por todas partes — el paraíso del peque.</li>
+      <li data-en>~55–65 min via E18. Open <b>09:00–19:00</b>. <b>Go early (09:30–10:00)</b> — animals are liveliest and you beat the queues. <b>Buy tickets online the night before</b> (cheaper than the gate, prices climb during the day).</li>
+      <li data-es>~55–65 min por la E18. Abre <b>09:00–19:00</b>. <b>Id pronto (09:30–10:00)</b> — los animales están más activos y evitáis las colas. <b>Comprad las entradas online la noche antes</b> (más baratas que en taquilla, el precio sube a lo largo del día).</li>
+      <li data-en><b>Save money on food:</b> picnics are welcome (loads of benches) — bring lunch and just treat yourselves to a bakery stop in Hakkebakkeskogen.</li>
+      <li data-es><b>Ahorrad en comida:</b> se permite picnic (hay muchísimos bancos) — llevad la comida y daos solo el capricho de la panadería en Hakkebakkeskogen.</li>
     </ul>
-    <div class="callout alt">
-      <span data-en>🍽️ <b>Restaurants inside (you don't need to bring food):</b> main food court <b>Sørlandsbrygga Mathavn</b> (order via the Dyreparken app). Kid-friendly: <b>Lars på Brygga</b> (burgers, veggie/GF), <b>Pastahjørnet</b> (pasta), <b>SOKO – Løveburgeren</b> (chicken nuggets), <b>Bryggas Burrito</b> (kids' menu), <b>Setra</b> (Norwegian food + milkshakes). Treats: <b>Ekorn-Jensens bakery</b> in Hakkebakkeskogen (buns/waffles + playground), strawberry cart, soft-serve. Picnics are allowed too.</span>
-      <span data-es>🍽️ <b>Restaurantes dentro (no hace falta llevar comida):</b> patio de comidas principal <b>Sørlandsbrygga Mathavn</b> (pedid por la app de Dyreparken). Para niños: <b>Lars på Brygga</b> (hamburguesas, veggie/sin gluten), <b>Pastahjørnet</b> (pasta), <b>SOKO – Løveburgeren</b> (nuggets de pollo), <b>Bryggas Burrito</b> (menú infantil), <b>Setra</b> (comida noruega + batidos). Dulces: <b>panadería Ekorn-Jensen</b> en Hakkebakkeskogen (bollos/gofres + parque infantil), carrito de fresas, helado soft. También se permite picnic.</span>
-    </div>
-    <div class="callout">
-      <span data-en>⚠️ <b>Parking — foreign plates:</b> pay <b>before leaving</b> via the <b>APCOA FLOW</b> app (download in advance) or at machines; postal invoices abroad are unreliable. ~130 NOK/day. Your two cars may be sent to different lots — <b>agree a meeting point</b>.</span>
-      <span data-es>⚠️ <b>Aparcamiento — matrícula extranjera:</b> pagad <b>antes de salir</b> con la app <b>APCOA FLOW</b> (descargadla antes) o en las máquinas; las facturas por correo al extranjero no son fiables. ~130 NOK/día. Vuestros dos coches pueden ir a parkings distintos — <b>quedad en un punto de encuentro</b>.</span>
-    </div>
+    <details class="plan">
+      <summary>🧸 <span data-en>Itinerary for Mikel (with a parent)</span><span data-es>Itinerario para Mikel (con un adulto)</span></summary>
+      <ul>
+        <li><span class="t"><span data-en>Morning · animals first</span><span data-es>Mañana · primero los animales</span></span> — <span data-en>arrive at opening; see the <a href="https://www.dyreparken.no/dyr/alledyr/" target="_blank" rel="noopener">Nordic Wilderness</a> (moose, wolves, lynx) and the <b>farm/petting animals</b> while he's fresh.</span><span data-es>llegad a la apertura; ver la <a href="https://www.dyreparken.no/dyr/alledyr/" target="_blank" rel="noopener">Naturaleza Nórdica</a> (alces, lobos, linces) y la <b>granja</b> mientras está descansado.</span></li>
+        <li><span data-en>Ride the <a href="https://www.dyreparken.no/opplevelser/reli-safari/" target="_blank" rel="noopener">Reli Safari</a> little train round Barnas Afrika.</span><span data-es>Montad en el trenecito <a href="https://www.dyreparken.no/opplevelser/reli-safari/" target="_blank" rel="noopener">Reli Safari</a> por Barnas Afrika.</span></li>
+        <li><span data-en>Into <b>Kardemomme By</b>: the <a href="https://www.dyreparken.no/opplevelser/kardemommeby-karusell/" target="_blank" rel="noopener">old-fashioned carousel</a> and the <a href="https://www.dyreparken.no/opplevelser/kaffekoppen/" target="_blank" rel="noopener">Kaffekoppen teacups</a> (both perfect for the littlest), plus the <a href="https://www.dyreparken.no/opplevelser/tarnet-i-kardemomme-by/" target="_blank" rel="noopener">Tobias Tower</a> & little houses.</span><span data-es>A <b>Kardemomme By</b>: el <a href="https://www.dyreparken.no/opplevelser/kardemommeby-karusell/" target="_blank" rel="noopener">carrusel antiguo</a> y las <a href="https://www.dyreparken.no/opplevelser/kaffekoppen/" target="_blank" rel="noopener">tazas Kaffekoppen</a> (perfectos para los más pequeños), y la <a href="https://www.dyreparken.no/opplevelser/tarnet-i-kardemomme-by/" target="_blank" rel="noopener">Torre de Tobias</a> y las casitas.</span></li>
+        <li><span class="t"><span data-en>Lunch & nap</span><span data-es>Comida y siesta</span></span> — <span data-en>eat, then Mikel naps in the stroller along the shaded paths.</span><span data-es>comed y luego Mikel duerme la siesta en el carrito por los caminos con sombra.</span></li>
+        <li><span class="t"><span data-en>Afternoon · play</span><span data-es>Tarde · juego</span></span> — <span data-en><a href="https://www.dyreparken.no/opplevelser/jungelland/" target="_blank" rel="noopener">Jungelland</a> playground & the <a href="https://www.dyreparken.no/opplevelser/julius-jungelloype/" target="_blank" rel="noopener">Julius jungle trail</a>; the <a href="https://www.dyreparken.no/opplevelser/lekeplass-i-hakkebakkeskogen/" target="_blank" rel="noopener">Hakkebakkeskogen playground</a> + bakery treat.</span><span data-es>parque <a href="https://www.dyreparken.no/opplevelser/jungelland/" target="_blank" rel="noopener">Jungelland</a> y el <a href="https://www.dyreparken.no/opplevelser/julius-jungelloype/" target="_blank" rel="noopener">sendero de Julius</a>; el <a href="https://www.dyreparken.no/opplevelser/lekeplass-i-hakkebakkeskogen/" target="_blank" rel="noopener">parque de Hakkebakkeskogen</a> + dulce en la panadería.</span></li>
+        <li><span data-en>Up to <b>KuToppen</b>: <a href="https://www.dyreparken.no/opplevelser/mosks-traktorbane/" target="_blank" rel="noopener">Mosks tractor track</a> and the indoor <a href="https://www.dyreparken.no/opplevelser/aktivitetshuset-pa-kutoppen/" target="_blank" rel="noopener">activity house</a> (drums + two-floor slide).</span><span data-es>Subid a <b>KuToppen</b>: la <a href="https://www.dyreparken.no/opplevelser/mosks-traktorbane/" target="_blank" rel="noopener">pista de tractores de Mosk</a> y la <a href="https://www.dyreparken.no/opplevelser/aktivitetshuset-pa-kutoppen/" target="_blank" rel="noopener">casa de actividades</a> cubierta (batería + tobogán de dos plantas).</span></li>
+        <li><span data-en>Wind down with an ice cream and one last carousel before closing.</span><span data-es>Terminad con un helado y un último carrusel antes del cierre.</span></li>
+      </ul>
+    </details>
+    <details class="plan">
+      <summary>🎢 <span data-en>Itinerary for the grown-ups</span><span data-es>Itinerario para los mayores</span></summary>
+      <ul>
+        <li><span data-en>While Matteo has Mikel, head for the bigger rides — no toddler pace, just enjoy.</span><span data-es>Mientras Matteo está con Mikel, id a las atracciones grandes — sin ritmo de bebé, a disfrutar.</span></li>
+        <li><a href="https://www.dyreparken.no/opplevelser/jungelbob/" target="_blank" rel="noopener">JungelBob</a> — <span data-en>the bobsled coaster (big stomach-drops!).</span><span data-es>la pista de bobsleigh (¡sustos en el estómago!).</span></li>
+        <li><a href="https://www.dyreparken.no/opplevelser/fallet/" target="_blank" rel="noopener">Fallet</a> — <span data-en>rise up the tower, then free-fall back down.</span><span data-es>subid la torre y caída libre hacia abajo.</span></li>
+        <li><a href="https://www.dyreparken.no/opplevelser/fyrtarnet/" target="_blank" rel="noopener">Fyrtårnet</a> — <span data-en>hoist yourself 9 m up by your own strength.</span><span data-es>subid 9 m con vuestra propia fuerza.</span></li>
+        <li><a href="https://www.dyreparken.no/opplevelser/spokelseshuset/" target="_blank" rel="noopener">Spøkelseshuset</a> & <a href="https://www.dyreparken.no/opplevelser/grevens-forheksede-labyrint/" target="_blank" rel="noopener">Grevens forheksede labyrint</a> — <span data-en>the ghost house & haunted maze.</span><span data-es>la casa del terror y el laberinto encantado.</span></li>
+        <li><a href="https://www.dyreparken.no/opplevelser/klatrefjellet/" target="_blank" rel="noopener">Klatrefjellet</a> — <span data-en>the big climbing rock (slip and you just slide down).</span><span data-es>la gran roca de escalada (si resbaláis, solo os deslizáis).</span></li>
+        <li><span data-en>Calmer option: a stroll up <a href="https://www.dyreparken.no/dyr/alledyr/" target="_blank" rel="noopener">Kaptein Sabeltann's pirate world</a> or catch a <a href="https://www.dyreparken.no/forestillinger/" target="_blank" rel="noopener">show</a> (check the day's times in the app).</span><span data-es>Opción tranquila: paseo por el <a href="https://www.dyreparken.no/dyr/alledyr/" target="_blank" rel="noopener">mundo pirata de Kaptein Sabeltann</a> o ver un <a href="https://www.dyreparken.no/forestillinger/" target="_blank" rel="noopener">espectáculo</a> (mirad los horarios del día en la app).</span></li>
+        <li><span class="warn"><span data-en>Meet back up for lunch — agree a spot & time.</span><span data-es>Reuníos para comer — acordad sitio y hora.</span></span></li>
+      </ul>
+    </details>
     <details class="walks">
       <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
       <div class="w"><span class="det" style="margin:0 0 4px"><span data-en>The zoo itself is a big walking day — these are only if the keen walkers want extra near Kristiansand.</span><span data-es>El zoo ya es un día de mucho andar — esto es solo si las caminantes quieren algo extra cerca de Kristiansand.</span></span></div>
@@ -326,10 +358,10 @@
        </div>
     </details>
     <details class="hist">
-      <summary><span data-en>History of Kristiansand</span><span data-es>Historia de Kristiansand</span></summary>
-      <div class="h"><span data-en><b>Founded by a king in 1641.</b> King <b>Christian IV</b> of Denmark-Norway founded the town on 5 July 1641 and named it after himself — <i>Christianssand</i>, "Christian's sand," for the sandy headland it sits on.</span><span data-es><b>Fundada por un rey en 1641.</b> El rey <b>Cristián IV</b> de Dinamarca-Noruega fundó la ciudad el 5 de julio de 1641 y la nombró en su honor — <i>Christianssand</i>, "la arena de Cristián", por el promontorio arenoso donde se asienta.</span></div>
-      <div class="h"><span data-en><b>The grid-plan "Kvadraturen".</b> He laid the centre out in a strict Renaissance grid — still called <i>Kvadraturen</i> ("the Quarters") — and ordered Agder's merchants to move in with tax breaks. A fortress town from 1666, it guarded the Skagerrak from Christiansholm Fortress.</span><span data-es><b>El plano en cuadrícula "Kvadraturen".</b> Trazó el centro en una estricta cuadrícula renacentista — aún llamada <i>Kvadraturen</i> ("los Cuartos") — y ordenó a los comerciantes de Agder mudarse con exenciones fiscales. Ciudad fortaleza desde 1666, vigilaba el Skagerrak desde la fortaleza de Christiansholm.</span></div>
-      <div class="h"><span data-en><b>Cardamom Town by the zoo.</b> <b>Dyreparken</b> is Norway's largest zoo (900,000+ visitors a year) and home to a real-life <b>Kardemomme By</b> — Cardamom Town from Thorbjørn Egner's beloved 1955 children's story.</span><span data-es><b>La Ciudad del Cardamomo junto al zoo.</b> <b>Dyreparken</b> es el mayor zoo de Noruega (más de 900.000 visitantes al año) y alberga una <b>Kardemomme By</b> de verdad — la Ciudad del Cardamomo del querido cuento de 1955 de Thorbjørn Egner.</span></div>
+      <summary><span data-en>About Dyreparken</span><span data-es>Sobre Dyreparken</span></summary>
+      <div class="h"><span data-en><b>From a small 1966 deer park to Norway's #1.</b> Dyreparken opened in 1966 with just a few deer and a couple of foxes. Today it's <b>Norway's most-visited attraction</b> — around <b>1 million guests a year</b> — and a serious conservation zoo, breeding endangered species like the red panda and Norway's most threatened animal, the pool frog.</span><span data-es><b>De un pequeño parque de ciervos de 1966 al nº 1 de Noruega.</b> Dyreparken abrió en 1966 con unos pocos ciervos y un par de zorros. Hoy es <b>la atracción más visitada de Noruega</b> — cerca de <b>1 millón de visitantes al año</b> — y un zoo de conservación serio, que cría especies amenazadas como el panda rojo y el animal más amenazado de Noruega, la rana de Pelophylax.</span></div>
+      <div class="h"><span data-en><b>A real Cardamom Town.</b> <b>Kardemomme By</b> is built straight from Thorbjørn Egner's beloved 1955 children's book — you can walk into Tobias' Tower and the houses of robbers Casper, Jesper & Jonatan. Generations of Norwegians know the songs by heart; it's pure nostalgia for them and magic for toddlers.</span><span data-es><b>Una Ciudad del Cardamomo de verdad.</b> <b>Kardemomme By</b> está construida tal cual del querido libro infantil de 1955 de Thorbjørn Egner — podéis entrar en la Torre de Tobías y en las casas de los ladrones Casper, Jesper y Jonatan. Generaciones de noruegos se saben las canciones de memoria; pura nostalgia para ellos y magia para los peques.</span></div>
+      <div class="h"><span data-en><b>Kaptein Sabeltann — Norway's favourite pirate.</b> The fearsome Captain Sabretooth was created here in 1989 and his harbour town <b>Abra Havn</b> became the park's biggest draw, with daily shows and a famous summer-evening spectacle. A whole world of Norwegian childhood lives inside this one park.</span><span data-es><b>Kaptein Sabeltann — el pirata favorito de Noruega.</b> El temible Capitán Diente de Sable nació aquí en 1989 y su pueblo portuario <b>Abra Havn</b> se convirtió en la mayor atracción del parque, con espectáculos diarios y un famoso show de tardes de verano. Todo un mundo de la infancia noruega vive dentro de este parque.</span></div>
     </details>
   </div>
 
@@ -362,34 +394,49 @@
 
   <!-- FRI 3 -->
   <div class="card">
+    <span class="tag big">🎂 <span data-en>Amama's birthday!</span><span data-es>¡Cumple de la amama!</span></span>
     <div class="day-head">
       <span class="day-date"><span data-en>Fri 3 Jul</span><span data-es>Vie 3 jul</span></span>
-      <span class="day-title"><span data-en>Lillesand town</span><span data-es>Pueblo de Lillesand</span></span>
+      <span class="day-title"><span data-en>Kristiansand — city day</span><span data-es>Kristiansand — día de ciudad</span></span>
     </div>
     <span class="wx warn">💨 21°C · <span data-en>dry, breezy (31 km/h)</span><span data-es>seco, con viento (31 km/h)</span></span>
-    <ul>
-      <li data-en>~45–50 min. The postcard Sørlandet town — white houses around a harbour square.</li>
-      <li data-es>~45–50 min. El pueblo de postal del Sørlandet — casas blancas en torno a la plaza del puerto.</li>
-      <li data-en>Lunch: <b>Restaurant Beddingen</b> (family-friendly, big harbour terrace), ice cream at <b>Lillis Gelato</b>.</li>
-      <li data-es>Comer: <b>Restaurant Beddingen</b> (apto para familias, gran terraza junto al puerto), helado en <b>Lillis Gelato</b>.</li>
-      <li data-en>A town stroll beats a boat today — too windy for the sea.</li>
-      <li data-es>Mejor pasear por el pueblo que ir en barco hoy — demasiado viento en el mar.</li>
-    </ul>
-    <div class="meta"><b><span data-en>Park:</span><span data-es>Aparcar:</span></b> Lillesand Gjestehavn (<span data-en>Tingsaker is the bigger fallback, 5-min walk</span><span data-es>Tingsaker es la alternativa grande, a 5 min andando</span>).</div>
+    <img class="bday-photo" src="fri-kristiansand.jpg"
+         alt="Kristiansand" loading="lazy" />
+    <div class="meta"><span data-en>A city day for the birthday — the region's biggest town, ~50 min away. Park once at <b>Torvparkering</b> or <b>P-Hus Vest</b> and do it all on foot (flat, stroller-easy).</span><span data-es>Un día de ciudad para el cumpleaños — la ciudad más grande de la zona, a ~50 min. Aparcad una vez en <b>Torvparkering</b> o <b>P-Hus Vest</b> y hacedlo todo a pie (llano, apto carrito).</span></div>
+    <div class="phase am">
+      <span class="ph">🌅 <span data-en>Morning · old town & harbour</span><span data-es>Por la mañana · casco antiguo y puerto</span></span>
+      <p><span data-en>Stroll <b>Posebyen</b> — the charming grid of old white wooden houses — then down to the <b>Fiskebrygga</b> (fish market & quay) for the harbour buzz. Easy, flat, lots to look at for Mikel.</span><span data-es>Pasead por <b>Posebyen</b> — la encantadora cuadrícula de casas blancas de madera — y bajad a la <b>Fiskebrygga</b> (mercado de pescado y muelle) para el ambiente del puerto. Llano, fácil, mucho que mirar para Mikel.</span></p>
+    </div>
+    <div class="phase lunch">
+      <span class="ph">🍽️ <span data-en>Lunch & Mikel's nap</span><span data-es>Comida y siesta de Mikel</span></span>
+      <p><span data-en>Harbour dining at <b>Fiskebrygga</b>: <b>Sjøhuset</b> (classic seafood, big terrace) or <b>Bønder i Byen</b> (local, family-OK). <span class="warn"><b>Verify hours / book ahead for the birthday.</b></span> Mikel can nap in the stroller after.</span><span data-es>Comida junto al puerto en <b>Fiskebrygga</b>: <b>Sjøhuset</b> (marisco clásico, gran terraza) o <b>Bønder i Byen</b> (local, apto familias). <span class="warn"><b>Confirmad horarios / reservad para el cumpleaños.</b></span> Mikel puede dormir la siesta en el carrito después.</span></p>
+    </div>
+    <div class="phase pm">
+      <span class="ph">🛍️ <span data-en>Afternoon · Markens & the fortress</span><span data-es>Por la tarde · Markens y la fortaleza</span></span>
+      <p><span data-en>Wander the pedestrian shopping street <b>Markens gate</b> (cafés, shops, street life), then out to <b>Christiansholm Fortress</b> (1672 round tower) and the <b>Kilden</b> waterfront for sea views. Coffee & cake stop wherever takes your fancy.</span><span data-es>Pasead por la calle peatonal <b>Markens gate</b> (cafés, tiendas, ambiente), luego hasta la <b>Fortaleza de Christiansholm</b> (torreón de 1672) y el paseo marítimo de <b>Kilden</b> con vistas al mar. Parada de café y pastel donde os apetezca.</span></p>
+    </div>
+    <div class="phase pm">
+      <span class="ph">🏖️ <span data-en>Late afternoon · Bystranda beach</span><span data-es>Final de tarde · playa de Bystranda</span></span>
+      <p><span data-en>Right in town: <b>Bystranda</b>, a clean city beach with shallow water and grass — easy for a toddler paddle and a sit-down before the drive home. (Breezy today, so a sheltered spot or a final ice cream may win.)</span><span data-es>En plena ciudad: <b>Bystranda</b>, una playa urbana limpia con agua poco profunda y césped — fácil para que el peque chapotee y para sentarse antes de volver. (Hoy hace viento, así que quizá mejor un rincón resguardado o un último helado.)</span></p>
+    </div>
+    <div class="callout">
+      <span data-en>🎉 <b>Birthday idea:</b> book a harbour-terrace dinner at Fiskebrygga, or cake & coffee somewhere pretty in Posebyen. <b>Confirm opening hours and reserve in advance.</b></span>
+      <span data-es>🎉 <b>Idea para el cumpleaños:</b> reservad una cena en una terraza del puerto en Fiskebrygga, o pastel y café en algún sitio bonito de Posebyen. <b>Confirmad horarios y reservad con antelación.</b></span>
+    </div>
     <details class="walks">
       <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
-      <div class="w"><b><span data-en>Harbour & old-town stroll</span><span data-es>Paseo por el puerto y el casco antiguo</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
-        <span class="det"><span data-en>~1.5–2 km · 30–45 min · flat. The white streets and harbour front by the Blindleia waterfront. Effortless for the whole family.</span><span data-es>~1,5–2 km · 30–45 min · llano. Las calles blancas y el frente portuario junto al Blindleia. Sin esfuerzo para toda la familia.</span></span>
+      <div class="w"><b><span data-en>Posebyen & harbour loop</span><span data-es>Circular Posebyen y puerto</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
+        <span class="det"><span data-en>~2.5–3 km · ~1 hr · flat, stroller-OK. Old town white houses → Fiskebrygga → Christiansholm Fortress → Bystranda. All on level pavement in the compact city grid.</span><span data-es>~2,5–3 km · ~1 h · llano, apto carrito. Casas blancas del casco antiguo → Fiskebrygga → Fortaleza de Christiansholm → Bystranda. Todo sobre asfalto llano en la cuadrícula compacta de la ciudad.</span></span>
       </div>
-      <div class="w"><b><span data-en>Coastal path toward Kjerlingland / Høvåg</span><span data-es>Sendero costero hacia Kjerlingland / Høvåg</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
-        <span class="det"><span data-en>~5–8 km (pick your turnaround) · 1.5–2.5 hrs · moderate. Marked coastal path SW along the skerries — rocky shore, sea views, quiet coves. Out-and-back, go as far as you like.</span><span data-es>~5–8 km (volved donde queráis) · 1,5–2,5 h · moderada. Sendero costero marcado al SO por los islotes — costa rocosa, vistas al mar, calas tranquilas. Ida y vuelta, hasta donde queráis.</span></span>
+      <div class="w"><b><span data-en>Odderøya island round</span><span data-es>Circular de la isla Odderøya</span></b><span class="wlvl l"><span data-en>longer</span><span data-es>larga</span></span>
+        <span class="det"><span data-en>~3–4 km loop · 1–1.5 hrs. Former fortress island by the centre (on foot via bridges) — trails, swimming coves, sea views, lighthouse point. For the keen walkers.</span><span data-es>~3–4 km circular · 1–1,5 h. Antigua isla fortaleza junto al centro (a pie por puentes) — senderos, calas, vistas al mar, faro. Para las caminantes.</span></span>
        </div>
     </details>
     <details class="hist">
-      <summary><span data-en>History of Lillesand</span><span data-es>Historia de Lillesand</span></summary>
-      <div class="h"><span data-en><b>The "little" sand.</b> Originally just <i>Sand</i> ("sandy beach"), the town added <i>Lille</i> ("little") after Kristiansand was founded in 1641 — to tell it apart from its bigger, grander neighbour.</span><span data-es><b>La arena "pequeña".</b> Originalmente solo <i>Sand</i> ("playa de arena"), el pueblo añadió <i>Lille</i> ("pequeña") tras la fundación de Kristiansand en 1641 — para distinguirse de su vecina mayor y más grandiosa.</span></div>
-      <div class="h"><span data-en><b>An age-of-sail boom and bust.</b> When it became a privileged port in 1821, Lillesand had just 300 people but nine shipyards; by 1895 its fleet was 95 ships. Then steam killed sail — the yards closed and many emigrated to America.</span><span data-es><b>Auge y caída de la era de la vela.</b> Al convertirse en puerto privilegiado en 1821, Lillesand tenía solo 300 habitantes pero nueve astilleros; en 1895 su flota era de 95 barcos. Luego el vapor mató a la vela — los astilleros cerraron y muchos emigraron a América.</span></div>
-      <div class="h"><span data-en><b>The calm Blindleia.</b> Famous for its white wooden houses, Lillesand sits by the <b>Blindleia</b> — a sheltered inland sea-passage protected by offshore skerries, with almost no tide.</span><span data-es><b>El tranquilo Blindleia.</b> Famosa por sus casas blancas de madera, Lillesand se asoma al <b>Blindleia</b> — un pasaje marino interior resguardado por los islotes, casi sin marea.</span></div>
+      <summary><span data-en>History of Kristiansand</span><span data-es>Historia de Kristiansand</span></summary>
+      <div class="h"><span data-en><b>A king's grid town.</b> Kristiansand was founded in 1641 by <b>King Christian IV</b>, who laid it out on a strict square grid — the <i>Kvadraturen</i> — still the shape of the city centre today. He gave it tax breaks to pull merchants to the new royal port.</span><span data-es><b>Una ciudad-cuadrícula real.</b> Kristiansand fue fundada en 1641 por el <b>rey Cristián IV</b>, que la trazó en una cuadrícula estricta — la <i>Kvadraturen</i> — que sigue siendo la forma del centro hoy. Le dio ventajas fiscales para atraer a los comerciantes al nuevo puerto real.</span></div>
+      <div class="h"><span data-en><b>Posebyen, the old wooden town.</b> The northern part of the grid, <b>Posebyen</b>, kept its low white timber houses after big fires elsewhere — one of Norway's largest preserved old-town quarters. The name may come from the French <i>repos</i> (rest), where soldiers were once billeted.</span><span data-es><b>Posebyen, la ciudad vieja de madera.</b> La parte norte de la cuadrícula, <b>Posebyen</b>, conservó sus casas bajas de madera blanca tras grandes incendios en otras zonas — uno de los cascos antiguos preservados más grandes de Noruega. El nombre quizá venga del francés <i>repos</i> (descanso), donde antaño se alojaban soldados.</span></div>
+      <div class="h"><span data-en><b>A fortress against the sea.</b> <b>Christiansholm Fortress</b>, a stout round tower with 5-metre-thick walls, was finished in 1672 to guard the harbour. It never saw a real battle — and today hosts concerts and events on the waterfront.</span><span data-es><b>Una fortaleza frente al mar.</b> La <b>Fortaleza de Christiansholm</b>, un robusto torreón con muros de 5 metros de grosor, se terminó en 1672 para proteger el puerto. Nunca vivió una batalla real — y hoy acoge conciertos y eventos junto al agua.</span></div>
     </details>
   </div>
 
@@ -411,6 +458,10 @@
     <div class="callout alt">
       <span data-en>🌧️ <b>If showers settle in:</b> swap to the <b>MS Nidelv</b> archipelago tour (12:00 / 14:30, ~1 hr, covered boat).</span>
       <span data-es>🌧️ <b>Si se pone a llover:</b> cambiad al tour por el archipiélago en el <b>MS Nidelv</b> (12:00 / 14:30, ~1 h, barco cubierto).</span>
+    </div>
+    <div class="callout alt">
+      <span data-en>🏘️ <b>Or instead — Lillesand (~45 min):</b> the postcard white-house town around a harbour square. Easy flat stroll, lunch at <b>Restaurant Beddingen</b> (big harbour terrace), ice cream at <b>Lillis Gelato</b>. A good calm-weather alternative to the boat.</span>
+      <span data-es>🏘️ <b>O en su lugar — Lillesand (~45 min):</b> el pueblo de postal de casas blancas en torno a una plaza portuaria. Paseo llano y fácil, comida en <b>Restaurant Beddingen</b> (gran terraza junto al puerto), helado en <b>Lillis Gelato</b>. Buena alternativa al barco si hace buen tiempo.</span>
     </div>
     <details class="walks">
       <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
