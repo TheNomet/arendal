@@ -25,6 +25,10 @@
   }
   header h1{margin:0; font-size:1.5rem; letter-spacing:.3px}
   header p{margin:6px 0 0; opacity:.92; font-size:.92rem}
+  .photos-link{display:inline-block; margin-top:12px; padding:7px 14px; border-radius:999px;
+    background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.4);
+    color:#fff; text-decoration:none; font-weight:600; font-size:.9rem}
+  .photos-link:hover{background:rgba(255,255,255,.28)}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px}
   .langbar{
     position:sticky; top:0; z-index:50; background:rgba(255,255,255,.96);
@@ -149,6 +153,13 @@
   .phase p{margin:0; font-size:.9rem}
   .phase p .warn{color:var(--warn)}
   .callout .warn, .phase p .warn, .plan .warn{color:var(--warn)}
+  /* map embed */
+  .map-wrap{margin:12px 0 6px; border-radius:12px; overflow:hidden; border:1px solid var(--line)}
+  .map-wrap iframe{display:block; width:100%; height:300px; border:0}
+  .map-btn{display:inline-block; margin:2px 0 4px; padding:9px 14px; border-radius:999px;
+    background:var(--sea); color:#fff; text-decoration:none; font-weight:600; font-size:.9rem}
+  .map-btn:hover{background:var(--sea-d)}
+  .map-cap{font-size:.8rem; color:var(--muted); margin:2px 0 8px}
 </style>
 </head>
 <body>
@@ -166,6 +177,7 @@
     <h1><span data-en>Arendal Family Days</span><span data-es>Días en familia · Arendal</span></h1>
     <p><span data-en>29 June – 5 July · 2 cars · toddler + grandparents</span>
        <span data-es>29 junio – 5 julio · 2 coches · bebé + abuelos</span></p>
+    <a class="photos-link" href="https://photos.app.goo.gl/TcveuwkhTbkjEKso8" target="_blank" rel="noopener">📸 <span data-en>Our trip photos</span><span data-es>Nuestras fotos del viaje</span></a>
   </div>
 </header>
 
@@ -370,17 +382,18 @@
     <span class="tag rain"><span data-en>Rain day · indoor</span><span data-es>Día de lluvia · interior</span></span>
     <div class="day-head">
       <span class="day-date"><span data-en>Thu 2 Jul</span><span data-es>Jue 2 jul</span></span>
-      <span class="day-title"><span data-en>Indoor day</span><span data-es>Día de interior</span></span>
+      <span class="day-title"><span data-en>Cosy indoor day</span><span data-es>Día tranquilo de interior</span></span>
     </div>
     <span class="wx bad">🌧️ 18°C · <span data-en>70% rain, 7mm</span><span data-es>70% lluvia, 7mm</span></span>
-    <ul>
-      <li data-en><b>Vitensenteret Sørlandet</b> (Arendal waterfront, ~11:00–16:00) — science centre with an under-3s room, café. Closest & easiest.</li>
-      <li data-es><b>Vitensenteret Sørlandet</b> (puerto de Arendal, ~11:00–16:00) — centro de ciencia con sala para menores de 3 años, café. Lo más cercano y fácil.</li>
-      <li data-en>Bigger option: <b>Aquarama</b> water park, Kristiansand (~1 hr) — baby under-3 ≈99 NOK, adult ≈259, family-of-4 ≈899.</li>
-      <li data-es>Opción más grande: parque acuático <b>Aquarama</b>, Kristiansand (~1 h) — bebé menor de 3 ≈99 NOK, adulto ≈259, familia de 4 ≈899.</li>
-      <li data-en>Keep driving minimal today. See the <a class="link" href="#museums">Museums</a> & <a class="link" href="#rain">If it rains</a> sections for more.</li>
-      <li data-es>Conducid lo mínimo hoy. Mirad las secciones <a class="link" href="#museums">Museos</a> y <a class="link" href="#rain">Si llueve</a>.</li>
-    </ul>
+    <div class="phase am">
+      <span class="ph">🍝 <span data-en>Morning · home</span><span data-es>Por la mañana · en casa</span></span>
+      <p><span data-en>A slow rainy morning at the house — we made lasagna together. 💛</span><span data-es>Una mañana lluviosa y tranquila en casa — hicimos lasaña juntos. 💛</span></p>
+    </div>
+    <div class="phase pm">
+      <span class="ph">🤸 <span data-en>Afternoon · Bulder Lekeland</span><span data-es>Por la tarde · Bulder Lekeland</span></span>
+      <p><span data-en>Indoor soft-play in Arendal (<a href="https://www.bulderlekeland.no" target="_blank" rel="noopener">Bulder Lekeland</a>, ~10 min) — 2,000 m² of ball pits, slides & climbing. We all ran around with Mikel and he wore us out — and was still going strong afterwards. 😅 A perfect rainy-day win.</span><span data-es>Parque de juego cubierto en Arendal (<a href="https://www.bulderlekeland.no" target="_blank" rel="noopener">Bulder Lekeland</a>, ~10 min) — 2.000 m² de piscinas de bolas, toboganes y escalada. Corrimos todos con Mikel y nos dejó agotados — y él seguía a tope después. 😅 Un planazo para día de lluvia.</span></p>
+    </div>
+    <div class="meta"><span data-en>Other rainy-day picks are in the <a class="link" href="#rain">If it rains</a> & <a class="link" href="#museums">Museums</a> sections.</span><span data-es>Más ideas para días de lluvia en las secciones <a class="link" href="#rain">Si llueve</a> y <a class="link" href="#museums">Museos</a>.</span></div>
     <details class="walks">
       <summary><span data-en>Walks here (rain-friendly)</span><span data-es>Rutas aquí (aptas con lluvia)</span></summary>
       <div class="w"><b><span data-en>Langsæ lake loop</span><span data-es>Vuelta al lago Langsæ</span></b><span class="wlvl s"><span data-en>easy</span><span data-es>fácil</span></span>
@@ -402,26 +415,40 @@
     <span class="wx warn">💨 21°C · <span data-en>dry, breezy (31 km/h)</span><span data-es>seco, con viento (31 km/h)</span></span>
     <img class="bday-photo" src="fri-kristiansand.jpg"
          alt="Kristiansand" loading="lazy" />
-    <div class="meta"><span data-en>A city day for the birthday — the region's biggest town, ~50 min away. Park once at <b>Torvparkering</b> or <b>P-Hus Vest</b> and do it all on foot (flat, stroller-easy).</span><span data-es>Un día de ciudad para el cumpleaños — la ciudad más grande de la zona, a ~50 min. Aparcad una vez en <b>Torvparkering</b> o <b>P-Hus Vest</b> y hacedlo todo a pie (llano, apto carrito).</span></div>
+    <div class="meta"><span data-en>A city day for the birthday — the region's biggest town, ~50 min away. Leave <b>~09:15</b>, park once at <b>Torvparkering</b> or <b>P-Hus Vest</b>, and do it all on foot (flat, stroller-easy).</span><span data-es>Un día de ciudad para el cumpleaños — la ciudad más grande de la zona, a ~50 min. Salid <b>~09:15</b>, aparcad una vez en <b>Torvparkering</b> o <b>P-Hus Vest</b>, y hacedlo todo a pie (llano, apto carrito).</span></div>
+    <div class="map-wrap">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?width=100%25&height=300&hl=en&q=Fiskebrygga%20Kristiansand&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+        title="Kristiansand walking route"></iframe>
+    </div>
+    <a class="map-btn" href="https://www.google.com/maps/dir/Torvparkering,+Kristiansand/Posebyen,+Kristiansand/Fiskebrygga,+Kristiansand/Markens+gate,+Kristiansand/Christiansholm+Festning,+Kristiansand/Bystranda,+Kristiansand/data=!4m2!4m1!3e2" target="_blank" rel="noopener">🗺️ <span data-en>Open the full-day walking route in Google Maps</span><span data-es>Abrir la ruta a pie del día completo en Google Maps</span></a>
+    <p class="map-cap"><span data-en>Full-day route: Parking → Posebyen → Fiskebrygga → Markens gate → Christiansholm Fortress → Bystranda (~2.5–3 km total, all flat).</span><span data-es>Ruta del día: Aparcamiento → Posebyen → Fiskebrygga → Markens gate → Fortaleza de Christiansholm → Bystranda (~2,5–3 km en total, todo llano).</span></p>
     <div class="phase am">
-      <span class="ph">🌅 <span data-en>Morning · old town & harbour</span><span data-es>Por la mañana · casco antiguo y puerto</span></span>
-      <p><span data-en>Stroll <b>Posebyen</b> — the charming grid of old white wooden houses — then down to the <b>Fiskebrygga</b> (fish market & quay) for the harbour buzz. Easy, flat, lots to look at for Mikel.</span><span data-es>Pasead por <b>Posebyen</b> — la encantadora cuadrícula de casas blancas de madera — y bajad a la <b>Fiskebrygga</b> (mercado de pescado y muelle) para el ambiente del puerto. Llano, fácil, mucho que mirar para Mikel.</span></p>
+      <span class="ph">🌅 <span data-en>~10:15 · Morning · old town & harbour</span><span data-es>~10:15 · Mañana · casco antiguo y puerto</span></span>
+      <p><span data-en>Start in <b>Posebyen</b> — the charming grid of old white wooden houses — then down to the <b>Fiskebrygga</b> (fish market & quay) for the harbour buzz. Easy, flat, lots to look at for Mikel. Grab a coffee & a birthday <i>skillingsboller</i> (cinnamon bun) somewhere pretty.</span><span data-es>Empezad en <b>Posebyen</b> — la encantadora cuadrícula de casas blancas de madera — y bajad a la <b>Fiskebrygga</b> (mercado de pescado y muelle) para el ambiente del puerto. Llano, fácil, mucho que mirar para Mikel. Tomad un café y un <i>skillingsboller</i> (bollo de canela) de cumpleaños en algún sitio bonito.</span></p>
     </div>
     <div class="phase lunch">
-      <span class="ph">🍽️ <span data-en>Lunch & Mikel's nap</span><span data-es>Comida y siesta de Mikel</span></span>
-      <p><span data-en>Harbour dining at <b>Fiskebrygga</b>: <b>Sjøhuset</b> (classic seafood, big terrace) or <b>Bønder i Byen</b> (local, family-OK). <span class="warn"><b>Verify hours / book ahead for the birthday.</b></span> Mikel can nap in the stroller after.</span><span data-es>Comida junto al puerto en <b>Fiskebrygga</b>: <b>Sjøhuset</b> (marisco clásico, gran terraza) o <b>Bønder i Byen</b> (local, apto familias). <span class="warn"><b>Confirmad horarios / reservad para el cumpleaños.</b></span> Mikel puede dormir la siesta en el carrito después.</span></p>
+      <span class="ph">🎂 <span data-en>~12:30 · Birthday lunch & Mikel's nap</span><span data-es>~12:30 · Comida de cumple y siesta de Mikel</span></span>
+      <p><span data-en>The birthday meal — a harbour terrace at <b>Fiskebrygga</b>: <b>Sjøhuset</b> (classic seafood, big terrace) or <b>Bønder i Byen</b> (local, family-OK). <span class="warn"><b>Book a table in advance for the group.</b></span> Mikel can nap in the stroller right after, so the grown-ups linger over coffee & cake.</span><span data-es>La comida de cumpleaños — una terraza del puerto en <b>Fiskebrygga</b>: <b>Sjøhuset</b> (marisco clásico, gran terraza) o <b>Bønder i Byen</b> (local, apto familias). <span class="warn"><b>Reservad mesa con antelación para el grupo.</b></span> Mikel puede dormir la siesta en el carrito justo después, así los mayores alargan el café y el pastel.</span></p>
     </div>
     <div class="phase pm">
-      <span class="ph">🛍️ <span data-en>Afternoon · Markens & the fortress</span><span data-es>Por la tarde · Markens y la fortaleza</span></span>
-      <p><span data-en>Wander the pedestrian shopping street <b>Markens gate</b> (cafés, shops, street life), then out to <b>Christiansholm Fortress</b> (1672 round tower) and the <b>Kilden</b> waterfront for sea views. Coffee & cake stop wherever takes your fancy.</span><span data-es>Pasead por la calle peatonal <b>Markens gate</b> (cafés, tiendas, ambiente), luego hasta la <b>Fortaleza de Christiansholm</b> (torreón de 1672) y el paseo marítimo de <b>Kilden</b> con vistas al mar. Parada de café y pastel donde os apetezca.</span></p>
+      <span class="ph">🛍️ <span data-en>~14:30 · Afternoon · Markens & the fortress</span><span data-es>~14:30 · Tarde · Markens y la fortaleza</span></span>
+      <p><span data-en>Wander the pedestrian shopping street <b>Markens gate</b> (cafés, shops, street life) while Mikel sleeps, then out to <b>Christiansholm Fortress</b> (1672 round tower) and the <b>Kilden</b> waterfront for sea views.</span><span data-es>Pasead por la calle peatonal <b>Markens gate</b> (cafés, tiendas, ambiente) mientras Mikel duerme, luego hasta la <b>Fortaleza de Christiansholm</b> (torreón de 1672) y el paseo marítimo de <b>Kilden</b> con vistas al mar.</span></p>
     </div>
     <div class="phase pm">
-      <span class="ph">🏖️ <span data-en>Late afternoon · Bystranda beach</span><span data-es>Final de tarde · playa de Bystranda</span></span>
-      <p><span data-en>Right in town: <b>Bystranda</b>, a clean city beach with shallow water and grass — easy for a toddler paddle and a sit-down before the drive home. (Breezy today, so a sheltered spot or a final ice cream may win.)</span><span data-es>En plena ciudad: <b>Bystranda</b>, una playa urbana limpia con agua poco profunda y césped — fácil para que el peque chapotee y para sentarse antes de volver. (Hoy hace viento, así que quizá mejor un rincón resguardado o un último helado.)</span></p>
+      <span class="ph">🏖️ <span data-en>~16:00 · Late afternoon · Bystranda beach</span><span data-es>~16:00 · Final de tarde · playa de Bystranda</span></span>
+      <p><span data-en>Right in town: <b>Bystranda</b>, a clean city beach with shallow water and grass — easy for a toddler paddle and a sit-down. A final ice cream, then drive home (~17:00) for a relaxed evening.</span><span data-es>En plena ciudad: <b>Bystranda</b>, una playa urbana limpia con agua poco profunda y césped — fácil para que el peque chapotee y para sentarse. Un último helado y de vuelta a casa (~17:00) para una tarde tranquila.</span></p>
     </div>
+    <div class="map-wrap">
+      <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?width=100%25&height=300&hl=en&q=Christiansholm%20Festning%20Kristiansand&t=&z=15&ie=UTF8&iwloc=B&output=embed"
+        title="Kristiansand afternoon walking route"></iframe>
+    </div>
+    <a class="map-btn" href="https://www.google.com/maps/dir/Markens+gate,+Kristiansand/Christiansholm+Festning,+Kristiansand/Kilden+Teater,+Kristiansand/Bystranda,+Kristiansand/data=!4m2!4m1!3e2" target="_blank" rel="noopener">🗺️ <span data-en>Open the afternoon walking route in Google Maps</span><span data-es>Abrir la ruta a pie de la tarde en Google Maps</span></a>
+    <p class="map-cap"><span data-en>Afternoon route: Markens gate → Christiansholm Fortress → Kilden waterfront → Bystranda (~1.5 km, flat & scenic).</span><span data-es>Ruta de la tarde: Markens gate → Fortaleza de Christiansholm → paseo de Kilden → Bystranda (~1,5 km, llano y con vistas).</span></p>
     <div class="callout">
-      <span data-en>🎉 <b>Birthday idea:</b> book a harbour-terrace dinner at Fiskebrygga, or cake & coffee somewhere pretty in Posebyen. <b>Confirm opening hours and reserve in advance.</b></span>
-      <span data-es>🎉 <b>Idea para el cumpleaños:</b> reservad una cena en una terraza del puerto en Fiskebrygga, o pastel y café en algún sitio bonito de Posebyen. <b>Confirmad horarios y reservad con antelación.</b></span>
+      <span data-en>🎉 <b>Make it feel like a birthday:</b> reserve the lunch table ahead, maybe a little cake at the table, and let amama set the pace. If you'd rather celebrate in the evening, swap in a relaxed <b>birthday dinner back near the house</b> instead of the beach stop.</span>
+      <span data-es>🎉 <b>Que se note que es un cumpleaños:</b> reservad la mesa de la comida, quizá un pastelito en la mesa, y dejad que la amama marque el ritmo. Si preferís celebrar por la noche, cambiad la playa por una <b>cena de cumpleaños tranquila cerca de casa</b>.</span>
     </div>
     <details class="walks">
       <summary><span data-en>Walks here</span><span data-es>Rutas aquí</span></summary>
